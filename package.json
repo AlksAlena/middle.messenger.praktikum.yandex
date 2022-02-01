@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel index.hbs -p 3000",
-    "build": "parcel build index.hbs"
+    "build": "parcel build index.hbs",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "parcel": "^2.2.1"
   },
   "dependencies": {
+    "express": "^4.17.2",
     "handlebars": "^4.7.7"
   }
 }
