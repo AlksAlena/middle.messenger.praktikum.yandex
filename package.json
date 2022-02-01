@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel index.hbs -p 3000",
-    "build": "parcel build index.hbs",
+    "dev": "parcel ./static/index.html -p 3000",
+    "build": "parcel build ./static/index.html",
     "start": "node server.js"
   },
   "repository": {
