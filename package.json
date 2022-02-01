@@ -1,0 +1,25 @@
+{
+  "name": "middle.messenger.praktikum.yandex",
+  "version": "1.0.0",
+  "description": "учебный проект",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel index.html -p 3000",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlksAlena/middle.messenger.praktikum.yandex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlksAlena/middle.messenger.praktikum.yandex/issues"
+  },
+  "homepage": "https://github.com/AlksAlena/middle.messenger.praktikum.yandex#readme",
+  "devDependencies": {
+    "parcel": "^2.2.1"
+  }
+}
