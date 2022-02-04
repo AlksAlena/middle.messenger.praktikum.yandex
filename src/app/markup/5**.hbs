@@ -1,0 +1,29 @@
+---
+bodyClass: error
+language: ru
+meta:
+  author: Alyona Eley
+  description: Training project
+  keywords: messenger, chat
+scripts:
+  - ../modules/5**.js
+stylesheets:
+  - ../styles/5**.css
+title: Ошибка сервера | Zoo-Chat
+pageHeader: Ошибка сервера
+linkText: На главную
+---
+
+{{#extend "base"}}
+  {{#content "main"}}
+    <main>
+      <h1>{{pageHeader}}</h1>
+
+      <div>
+        <p>
+          <a href="./chats.hbs">{{linkText}}</a>
+        </p>
+      </div>
+    </main>
+  {{/content}}
+{{/extend}}
