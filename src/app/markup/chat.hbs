@@ -1,0 +1,55 @@
+---
+bodyClass: chat
+scripts:
+  - ../modules/chat.js
+stylesheets:
+  - ../styles/chat.css
+title: Чат | Zoo-Chat
+pageHeader: Чат
+messages:
+  - text: Привет, как дела?
+    type: out
+    status: ok
+    date: 15-02-2022, 18:15
+  - text: Спасибо, отлично! А ты как?
+    type: in
+    status: ok
+    date: 15-02-2022, 18:17
+submitButtonText: Отправить
+linkText: На главную
+---
+
+{{#extend "base"}}
+  {{#content "main"}}
+    <main>
+      <h1>{{pageHeader}}</h1>
+
+      <div>
+        <ul>
+          {{#if messages}}
+            {{#each messages}}
+              {{#and text status date}}
+                <li>
+                  <p>{{text}}</p>
+                  <p>статус: {{status}}</p>
+                  <p>дата отправки: {{date}}</p>
+                </li>
+              {{/and}}
+            {{/each}}
+          {{/if}}
+        </ul>
+
+        <div>
+          <form action="">
+            <input type="text" placeholder="Введите сообщение">
+            {{> submit-button}}
+          </form>
+        </div>
+
+        <p>
+          <a href="./chats.hbs">{{linkText}}</a>
+        </p>
+      </div>
+    </main>
+  {{/content}}
+{{/extend}}
