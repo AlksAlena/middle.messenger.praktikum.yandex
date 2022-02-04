@@ -1,5 +1,4 @@
 ---
-bodyClass: chat
 title: Чат | Zoo-Chat
 pageHeader: Чат
 messages:
@@ -13,6 +12,7 @@ messages:
     date: 15-02-2022, 18:17
 submitButtonText: Отправить
 linkText: На главную
+linkUrl: ./chats.hbs
 ---
 
 {{#extend "base"}}
@@ -20,7 +20,7 @@ linkText: На главную
     <main>
       <h1>{{pageHeader}}</h1>
 
-      <div>
+      <div class="content">
         <ul>
           {{#if messages}}
             {{#each messages}}
@@ -43,7 +43,7 @@ linkText: На главную
         </div>
 
         <p>
-          <a href="./chats.hbs">{{linkText}}</a>
+          <a href="{{linkUrl}}">{{linkText}}</a>
         </p>
       </div>
     </main>
