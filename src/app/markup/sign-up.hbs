@@ -1,0 +1,62 @@
+---
+bodyClass: sign-up
+language: ru
+meta:
+  author: Alyona Eley
+  description: Training project
+  keywords: messenger, chat
+scripts:
+  - ../modules/sign-up.js
+stylesheets:
+  - ../styles/sign-up.css
+title: Регистрация | Zoo-Chat
+pageHeader: Регистрация нового пользователя
+fields:
+  - label: Имя
+    inputName: first_name
+    fieldType: text
+  - label: Фамилия
+    inputName: second_name
+    fieldType: text
+  - label: Логин
+    inputName: login
+    fieldType: text
+  - label: Пароль
+    inputName: password
+    fieldType: password
+  - label: Почта
+    inputName: email
+    fieldType: email
+  - label: Телефон
+    inputName: phone
+    fieldType: phone
+linkText: К списку чатов
+submitButtonText: Зарегистрироваться
+---
+
+{{#extend "base"}}
+  {{#content "main"}}
+    <main>
+      <h1>{{pageHeader}}</h1>
+
+      <div>
+        <form action="">
+          {{#each fields}}
+            {{#and label inputName fieldType}}
+              <p>
+                <label for="{{inputName}}">{{label}}</label>
+                <input name="{{inputName}}" type="{{fieldType}}">
+              </p>
+            {{/and}}
+          {{/each}}
+
+          {{> submit-button}}
+        </form>
+
+        <p>
+          <a href="./chats.hbs">{{linkText}}</a>
+        </p>
+      </div>
+    </main>
+  {{/content}}
+{{/extend}}
