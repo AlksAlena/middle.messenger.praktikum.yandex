@@ -3,21 +3,21 @@
   "protocol": "http",
   "links": [{
     "text": "Авторизация",
-    "url": "./index.html"
+    "url": "./index.hbs"
   }, {
     "text": "Регистрация",
-    "url": "./sign-up.html"
+    "url": "./sign-up.hbs"
   }, {
     "text": "Список чатов",
-    "url": "./chats.html"
+    "url": "./chats.hbs"
   }, {
     "text": "Настройки пользователя",
-    "url": "./profile.html"
+    "url": "./profile.hbs"
   }, {
     "text": "404",
-    "url": "./404.html"
+    "url": "./404.hbs"
   }, {
     "text": "5**",
-    "url": "./5**.html"
+    "url": "./5**.hbs"
   }]
 }
