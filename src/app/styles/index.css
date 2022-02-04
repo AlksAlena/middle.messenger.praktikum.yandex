@@ -24,15 +24,12 @@ body {
 h1 {
   text-align: center;
   margin: 20px 0;
+  font-size: 1.8rem;
 }
 
 .content {
-  width: 80vw;
-  background-color: #f2f2f2;
-  margin: auto;
   padding: 30px;
   box-sizing: border-box;
-  border-radius: 5px;
 }
 
 .navigation-items,
@@ -41,7 +38,12 @@ h1 {
 }
 
 .form {
-  text-align: center;
+  width: 370px;
+  background-color: #f2f2f2;
+  margin: auto;
+  padding: 30px;
+  box-sizing: border-box;
+  border-radius: 5px;
 }
 
 .form-field,
@@ -58,7 +60,11 @@ h1 {
 }
 .form-field .label {
   display: inline-block;
-  width: 20%;
+  width: 30%;
+}
+
+.button-wrapper {
+  text-align: center;
 }
 
 .button {
@@ -86,6 +92,46 @@ h1 {
   color: #003d3d;
 }
 
+.chats {
+  box-sizing: border-box;
+  list-style: none;
+  width: 200px;
+}
+
+.chat-title {
+  border: 1px solid #00b2b2;
+  box-sizing: border-box;
+  margin-bottom: 2px;
+  display: flex;
+  border-radius: 5px;
+}
+
+.chat-title:last-child {
+  margin-bottom: 0;
+}
+
+.title-username {
+  flex: 1;
+}
+
+.title-username a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  padding: 15px;
+}
+
+.title-username a:hover {
+  color: #fff;
+  background-color: #00b2b2;
+}
+
+.title-status {
+  background-color: orange;
+  padding: 15px 0;
+  width: 15px;
+}
+
 .header,
 .footer {
   background-color: darkcyan;
@@ -111,4 +157,37 @@ h1 {
 
 .navigation-item:hover {
   border-bottom-color: #003d3d ;
+}
+
+.chats-wrapper {
+  display: flex;
+}
+
+.active-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 10px 0;
+}
+
+.messages {
+  list-style: none;
+}
+
+.editor {
+  display: flex;
+}
+
+.editor-message {
+  resize: none;
+  flex: 1;
+  padding: 5px;
+}
+
+.message {
+  background: aliceblue;
+  padding: 10px;
+  display: inline-block;
+  margin-bottom: 10px;
 }

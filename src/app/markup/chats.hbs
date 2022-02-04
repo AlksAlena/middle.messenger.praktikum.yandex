@@ -1,6 +1,5 @@
 ---
 title: Чаты | Zoo-Chat
-pageHeader: Чаты
 chats:
   - userName: Катя
     status: online
@@ -14,24 +13,64 @@ chats:
     status: offline
   - userName: Kroca
     status: offline
+messages:
+  - text: Привет, как дела?
+    type: out
+    status: ok
+    date: 15-02-2022, 18:15
+  - text: Спасибо, отлично! А ты как?
+    type: in
+    status: ok
+    date: 15-02-2022, 18:17
+submitButtonText: Отправить
 ---
 
 {{#extend "base"}}
   {{#content "main"}}
     <main>
-      <h1>{{pageHeader}}</h1>
-
       <div class="content">
-        <ul>
-          {{#each chats}}
-            {{#and userName status}}
-              <li>
-                <a href="./chat.hbs"><span>{{userName}}</span></a>
-                <span>{{status}}</span>
-              </li>
-            {{/and}}
-          {{/each}}
-        </ul>
+        <div class="chats-wrapper">
+          <ul class="chats">
+            {{#each chats}}
+              {{#and userName status}}
+                <li class="chat-title">
+                  <div class="title-username">
+                    <a href="./chats.hbs"><span>{{userName}}</span></a>
+                  </div>
+                  <div class="title-status"></div>
+                </li>
+              {{/and}}
+            {{/each}}
+          </ul>
+
+          <section class="active-chat">
+            <ul class="messages">
+              {{#if messages}}
+                {{#each messages}}
+                  {{#and text status date}}
+                    <li>
+                      <div class="message">
+                        <p>{{text}}</p>
+                        <p>статус: {{status}}</p>
+                        <p>дата отправки: {{date}}</p>
+                      </div>
+                    </li>
+                  {{/and}}
+                {{/each}}
+              {{/if}}
+            </ul>
+
+            <div>
+              <form class="editor" action="">
+                <textarea class="editor-message"
+                          rows="2"
+                          name="message"
+                          placeholder="Введите сообщение"></textarea>
+                {{> submit-button}}
+              </form>
+            </div>
+          </section>
+        </div>
       </div>
     </main>
   {{/content}}

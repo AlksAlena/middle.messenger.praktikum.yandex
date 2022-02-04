@@ -16,10 +16,10 @@ linkUrl: ./sign-up.hbs
 {{#extend "base"}}
   {{#content "main"}}
     <main>
-      <h1>{{pageHeader}}</h1>
-
       <div class="content">
         <form class="form" action="">
+          <h1>{{pageHeader}}</h1>
+
           <ul class="form-fields">
             {{#each fields}}
               {{#and label inputName fieldType}}
@@ -30,11 +30,10 @@ linkUrl: ./sign-up.hbs
               {{/and}}
             {{/each}}
           </ul>
+          <a class="link" href="{{linkUrl}}">{{linkText}}</a>
 
           {{> submit-button}}
         </form>
-
-        <a class="link" href="{{linkUrl}}">{{linkText}}</a>
       </div>
     </main>
   {{/content}}

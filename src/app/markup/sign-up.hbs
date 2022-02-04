@@ -1,6 +1,6 @@
 ---
 title: Регистрация | Zoo-Chat
-pageHeader: Регистрация нового пользователя
+pageHeader: Регистрация
 fields:
   - label: Имя
     inputName: first_name
@@ -26,10 +26,10 @@ submitButtonText: Зарегистрироваться
 {{#extend "base"}}
   {{#content "main"}}
     <main>
-      <h1>{{pageHeader}}</h1>
-
       <div class="content">
         <form class="form" action="">
+          <h1>{{pageHeader}}</h1>
+
           <ul class="form-fields">
           {{#each fields}}
             {{#and label inputName fieldType}}

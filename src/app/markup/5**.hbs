@@ -6,9 +6,9 @@ pageHeader: Ошибка сервера
 {{#extend "base"}}
   {{#content "main"}}
     <main>
-      <h1>{{pageHeader}}</h1>
-
       <div class="content">
+        <h1>{{pageHeader}}</h1>
+
         {{#and site.linkToMainPage.url site.linkToMainPage.text}}
           <p>
             <a class="link" href="{{site.linkToMainPage.url}}">{{site.linkToMainPage.text}}</a>
