@@ -1,1 +1,1 @@
-console.log('open about.html page!');
+console.log('open sign-up.html page!');
