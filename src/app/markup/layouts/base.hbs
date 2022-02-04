@@ -13,11 +13,7 @@
       <title>{{title}}</title>
     {{/block}}
 
-    {{#block "styles"}}
-      {{#each stylesheets}}
-        <link href="{{this}}" rel="stylesheet">
-      {{/each}}
-    {{/block}}
+    <link href="../styles/index.css" rel="stylesheet">
   </head>
 {{/block}}
 
@@ -34,11 +30,7 @@
     {{> footer}}
   {{/block}}
 
-  {{#block "scripts"}}
-    {{#each scripts}}
-      <script defer src="{{this}}" type="module"></script>
-    {{/each}}
-  {{/block}}
+  <script defer src="../modules/index.js" type="module"></script>
   </body>
 {{/block}}
 </html>
