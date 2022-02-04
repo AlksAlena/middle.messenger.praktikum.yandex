@@ -1,5 +1,4 @@
 ---
-bodyClass: sign-up
 title: Регистрация | Zoo-Chat
 pageHeader: Регистрация нового пользователя
 fields:
@@ -21,7 +20,6 @@ fields:
   - label: Телефон
     inputName: phone
     fieldType: phone
-linkText: К списку чатов
 submitButtonText: Зарегистрироваться
 ---
 
@@ -30,7 +28,7 @@ submitButtonText: Зарегистрироваться
     <main>
       <h1>{{pageHeader}}</h1>
 
-      <div>
+      <div class="content">
         <form action="">
           {{#each fields}}
             {{#and label inputName fieldType}}
@@ -43,10 +41,6 @@ submitButtonText: Зарегистрироваться
 
           {{> submit-button}}
         </form>
-
-        <p>
-          <a href="./chats.hbs">{{linkText}}</a>
-        </p>
       </div>
     </main>
   {{/content}}
