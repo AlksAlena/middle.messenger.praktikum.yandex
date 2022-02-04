@@ -1,7 +1,6 @@
 ---
-bodyClass: chats
 title: Чаты | Zoo-Chat
-pageHeader: Список чатов
+pageHeader: Чаты
 chats:
   - userName: Катя
     status: online
@@ -15,11 +14,6 @@ chats:
     status: offline
   - userName: Kroca
     status: offline
-links:
-  - text: ошибка 404
-    url: ./404.hbs
-  - text: ошибка 5**
-    url: ./5**.hbs
 ---
 
 {{#extend "base"}}
@@ -27,23 +21,13 @@ links:
     <main>
       <h1>{{pageHeader}}</h1>
 
-      <div>
+      <div class="content">
         <ul>
           {{#each chats}}
             {{#and userName status}}
               <li>
                 <a href="./chat.hbs"><span>{{userName}}</span></a>
                 <span>{{status}}</span>
-              </li>
-            {{/and}}
-          {{/each}}
-        </ul>
-
-        <ul>
-          {{#each links}}
-            {{#and url text}}
-              <li>
-                <a href="{{url}}">{{text}}</a>
               </li>
             {{/and}}
           {{/each}}
