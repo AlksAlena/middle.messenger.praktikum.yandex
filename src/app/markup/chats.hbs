@@ -1,0 +1,63 @@
+---
+bodyClass: chats
+language: ru
+meta:
+  author: Alyona Eley
+  description: Training project
+  keywords: messenger, chat
+scripts:
+  - ../modules/404.js
+stylesheets:
+  - ../styles/404.css
+title: Чаты | Zoo-Chat
+pageHeader: Список чатов
+chats:
+  - userName: Катя
+    status: online
+  - userName: Коля
+    status: offline
+  - userName: Оля
+    status: offline
+  - userName: Настя
+    status: offline
+  - userName: Павел Сергеевич
+    status: offline
+  - userName: Kroca
+    status: offline
+links:
+  - text: ошибка 404
+    url: ./404.hbs
+  - text: ошибка 5**
+    url: ./5**.hbs
+---
+
+{{#extend "base"}}
+  {{#content "main"}}
+    <main>
+      <h1>{{pageHeader}}</h1>
+
+      <div>
+        <ul>
+          {{#each chats}}
+            {{#and userName status}}
+              <li>
+                <span>{{userName}}</span>
+                <span>{{status}}</span>
+              </li>
+            {{/and}}
+          {{/each}}
+        </ul>
+
+        <ul>
+          {{#each links}}
+            {{#and url text}}
+              <li>
+                <a href="{{url}}">{{text}}</a>
+              </li>
+            {{/and}}
+          {{/each}}
+        </ul>
+      </div>
+    </main>
+  {{/content}}
+{{/extend}}
