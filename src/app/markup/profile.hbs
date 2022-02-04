@@ -1,6 +1,5 @@
 ---
-bodyClass: profile
-title: Вход | Zoo-Chat
+title: Настройки пользователя | Zoo-Chat
 pageHeader: Настройки пользователя
 fields:
   - label: Логин
@@ -10,7 +9,6 @@ fields:
     inputName: password
     fieldType: password
 submitButtonText: Войти
-linkText: На главную
 ---
 
 {{#extend "base"}}
@@ -18,7 +16,7 @@ linkText: На главную
     <main>
       <h1>{{pageHeader}}</h1>
 
-      <div>
+      <div class="action">
         <form action="">
           {{#each fields}}
             {{#and label inputName fieldType}}
@@ -31,10 +29,6 @@ linkText: На главную
 
           {{> submit-button}}
         </form>
-
-        <p>
-          <a href="./chats.hbs">{{linkText}}</a>
-        </p>
       </div>
     </main>
   {{/content}}
