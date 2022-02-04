@@ -1,0 +1,27 @@
+@import './_variables';
+
+.footer {
+  background-color: $primary-bg-color;
+  height: 70px;
+  color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.navigation ul {
+  display: flex;
+}
+
+.navigation-item {
+  font-size: 0.9em;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 0;
+  margin: 0 5px;
+  border-bottom: 1px dashed #fff;
+}
+
+.navigation-item:hover {
+  border-bottom-color: $dark-primary-bg-color ;
+}

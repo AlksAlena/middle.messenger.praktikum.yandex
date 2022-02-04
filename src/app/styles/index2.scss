@@ -1,0 +1,48 @@
+@import './_variables';
+@import './header';
+@import './chat';
+@import './form';
+@import './footer';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: $primary-text-color;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.8rem;
+}
+
+.content {
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+  color: $primary-bg-color;
+  display: inline-block;
+  padding: 5px;
+}
+
+.link:hover {
+  color: $dark-primary-bg-color;
+}

@@ -1,0 +1,15 @@
+@import './_variables';
+
+.footer {
+  background-color: $primary-bg-color;
+  height: 70px;
+  color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.5rem;
+  float: right;
+}
