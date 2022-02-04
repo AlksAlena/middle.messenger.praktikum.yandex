@@ -3,11 +3,11 @@ title: Вход | Zoo-Chat
 pageHeader: Вход
 fields:
   - label: Логин
-    inputName: login
-    fieldType: text
+    name: login
+    type: text
   - label: Пароль
-    inputName: password
-    fieldType: password
+    name: password
+    type: password
 submitButtonText: Войти
 linkText: Ещё не зарегистрированы?
 linkUrl: ./sign-up.hbs
@@ -22,10 +22,10 @@ linkUrl: ./sign-up.hbs
 
           <ul class="form-fields">
             {{#each fields}}
-              {{#and label inputName fieldType}}
+              {{#and label name type}}
                 <li class="form-field">
-                  <label class="label" for="{{inputName}}">{{label}}</label>
-                  <input class="input" name="{{inputName}}" type="{{fieldType}}">
+                  <label class="label" for="{{name}}">{{label}}</label>
+                  <input class="input" name="{{name}}" type="{{type}}">
                 </li>
               {{/and}}
             {{/each}}

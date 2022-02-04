@@ -3,23 +3,23 @@ title: Регистрация | Zoo-Chat
 pageHeader: Регистрация
 fields:
   - label: Имя
-    inputName: first_name
-    fieldType: text
+    name: first_name
+    type: text
   - label: Фамилия
-    inputName: second_name
-    fieldType: text
+    name: second_name
+    type: text
   - label: Логин
-    inputName: login
-    fieldType: text
+    name: login
+    type: text
   - label: Пароль
-    inputName: password
-    fieldType: password
+    name: password
+    type: password
   - label: Почта
-    inputName: email
-    fieldType: email
+    name: email
+    type: email
   - label: Телефон
-    inputName: phone
-    fieldType: phone
+    name: phone
+    type: phone
 submitButtonText: Зарегистрироваться
 ---
 
@@ -32,10 +32,10 @@ submitButtonText: Зарегистрироваться
 
           <ul class="form-fields">
           {{#each fields}}
-            {{#and label inputName fieldType}}
+            {{#and label name type}}
               <li class="form-field">
-                <label class="label" for="{{inputName}}">{{label}}</label>
-                <input class="input" name="{{inputName}}" type="{{fieldType}}">
+                <label class="label" for="{{name}}">{{label}}</label>
+                <input class="input" name="{{name}}" type="{{type}}">
               </li>
             {{/and}}
           {{/each}}
