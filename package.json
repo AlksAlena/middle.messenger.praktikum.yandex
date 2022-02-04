@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "учебный проект",
   "scripts": {
-    "dev": "parcel src/app/markup/index.hbs --no-cache",
-    "build": "parcel build src/app/markup/index.hbs --public-url ./",
+    "dev": "parcel src/app/markup/index.hbs",
+    "build": "parcel build src/app/markup/index.hbs",
     "start": "npm run build && node server.js"
   },
   "repository": {
