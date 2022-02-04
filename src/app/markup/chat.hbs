@@ -42,9 +42,11 @@ linkUrl: ./chats.hbs
           </form>
         </div>
 
-        <p>
-          <a href="{{linkUrl}}">{{linkText}}</a>
-        </p>
+        {{#and site.linkToMainPage.url site.linkToMainPage.text}}
+          <p>
+            <a class="link" href="{{site.linkToMainPage.url}}">{{site.linkToMainPage.text}}</a>
+          </p>
+        {{/and}}
       </div>
     </main>
   {{/content}}

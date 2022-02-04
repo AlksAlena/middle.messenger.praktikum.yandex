@@ -2,7 +2,7 @@
   "domain": "www.example.com",
   "protocol": "http",
   "links": [{
-    "text": "Авторизация",
+    "text": "Вход",
     "url": "./index.hbs"
   }, {
     "text": "Регистрация",
@@ -19,5 +19,9 @@
   }, {
     "text": "5**",
     "url": "./5**.hbs"
-  }]
+  }],
+  "linkToMainPage": {
+    "text": "На главную",
+    "url": "./chats.hbs"
+  }
 }

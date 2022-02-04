@@ -8,7 +8,7 @@ fields:
   - label: Пароль
     inputName: password
     fieldType: password
-submitButtonText: Войти
+submitButtonText: Сохранить
 ---
 
 {{#extend "base"}}
@@ -16,7 +16,7 @@ submitButtonText: Войти
     <main>
       <h1>{{pageHeader}}</h1>
 
-      <div class="action">
+      <div class="content">
         <form action="">
           {{#each fields}}
             {{#and label inputName fieldType}}

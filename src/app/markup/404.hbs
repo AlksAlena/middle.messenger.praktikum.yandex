@@ -1,8 +1,6 @@
 ---
-bodyClass: error
 title: 404. Страница не существует | Zoo-Chat
 pageHeader: Страница не существует
-linkText: На главную
 ---
 
 {{#extend "base"}}
@@ -10,10 +8,12 @@ linkText: На главную
     <main>
       <h1>{{pageHeader}}</h1>
 
-      <div>
-        <p>
-          <a href="./chats.hbs">{{linkText}}</a>
-        </p>
+      <div class="content">
+        {{#and site.linkToMainPage.url site.linkToMainPage.text}}
+          <p>
+            <a class="link" href="{{site.linkToMainPage.url}}">{{site.linkToMainPage.text}}</a>
+          </p>
+        {{/and}}
       </div>
     </main>
   {{/content}}
