@@ -41,8 +41,8 @@ ul {
   color: $primary-bg-color;
   display: inline-block;
   padding: 5px;
-}
 
-.link:hover {
-  color: $dark-primary-bg-color;
+  &:hover {
+    color: $dark-primary-bg-color;
+  }
 }

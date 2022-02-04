@@ -17,10 +17,12 @@
 .form-field {
   display: flex;
 }
+
 .form-field .input {
   padding: 5px;
   flex: 1;
 }
+
 .form-field .label {
   display: inline-block;
   width: 30%;
@@ -38,8 +40,8 @@
   border: none;
   cursor: pointer;
   padding: 7px 12px;
-}
 
-.button:hover {
-  background-color: $dark-primary-bg-color;
+  &:hover {
+    background-color: $dark-primary-bg-color;
+  }
 }
