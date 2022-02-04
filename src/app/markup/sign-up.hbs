@@ -29,15 +29,17 @@ submitButtonText: Зарегистрироваться
       <h1>{{pageHeader}}</h1>
 
       <div class="content">
-        <form action="">
+        <form class="form" action="">
+          <ul class="form-fields">
           {{#each fields}}
             {{#and label inputName fieldType}}
-              <p>
-                <label for="{{inputName}}">{{label}}</label>
-                <input name="{{inputName}}" type="{{fieldType}}">
-              </p>
+              <li class="form-field">
+                <label class="label" for="{{inputName}}">{{label}}</label>
+                <input class="input" name="{{inputName}}" type="{{fieldType}}">
+              </li>
             {{/and}}
           {{/each}}
+          </ul>
 
           {{> submit-button}}
         </form>

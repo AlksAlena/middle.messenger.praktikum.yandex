@@ -17,15 +17,17 @@ submitButtonText: Сохранить
       <h1>{{pageHeader}}</h1>
 
       <div class="content">
-        <form action="">
-          {{#each fields}}
-            {{#and label inputName fieldType}}
-            <p>
-              <label for="{{inputName}}">{{label}}</label>
-              <input name="{{inputName}}" type="{{fieldType}}">
-            </p>
-            {{/and}}
-          {{/each}}
+        <form class="form" action="">
+          <ul class="form-fields">
+            {{#each fields}}
+              {{#and label inputName fieldType}}
+                <li class="form-field">
+                  <label class="label" for="{{inputName}}">{{label}}</label>
+                  <input class="input" name="{{inputName}}" type="{{fieldType}}">
+                </li>
+              {{/and}}
+            {{/each}}
+          </ul>
 
           {{> submit-button}}
         </form>

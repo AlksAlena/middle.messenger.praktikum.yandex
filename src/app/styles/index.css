@@ -15,6 +15,12 @@ body {
   color: #333;
 }
 
+.logo {
+  font-weight: 600;
+  font-size: 1.5rem;
+  float: right;
+}
+
 h1 {
   text-align: center;
   margin: 20px 0;
@@ -22,30 +28,62 @@ h1 {
 
 .content {
   width: 80vw;
-  background-color: pink;
+  background-color: #f2f2f2;
   margin: auto;
+  padding: 30px;
+  box-sizing: border-box;
+  border-radius: 5px;
 }
 
-ul {
+.navigation-items,
+.form-fields {
   list-style: none;
 }
 
-li {
-  padding: 10px;
+.form {
+  text-align: center;
 }
 
-li > a {
+.form-field,
+.button {
+  padding: 5px;
+}
+
+.form-field {
+  display: flex;
+}
+.form-field .input {
+  padding: 5px;
+  flex: 1;
+}
+.form-field .label {
+  display: inline-block;
+  width: 20%;
+}
+
+.button {
+  margin: 15px 0 0;
+  background-color: darkcyan;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  padding: 7px 12px;
+}
+
+.button:hover {
+  background-color: #003d3d;
+}
+
+.link {
   text-decoration: none;
-  font-weight: 600;
-  color: #333;
+  color: darkcyan;
+  display: inline-block;
+  padding: 5px;
 }
 
-.navigation {
-
-}
-
-.navigation-item {
-
+.link:hover {
+  color: #003d3d;
 }
 
 .header,
@@ -53,4 +91,24 @@ li > a {
   background-color: darkcyan;
   height: 70px;
   color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.navigation ul {
+  display: flex;
+}
+
+.navigation-item {
+  font-size: 0.9em;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 0;
+  margin: 0 5px;
+  border-bottom: 1px dashed #fff;
+}
+
+.navigation-item:hover {
+  border-bottom-color: #003d3d ;
 }

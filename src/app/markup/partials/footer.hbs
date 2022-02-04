@@ -1,11 +1,15 @@
 <footer class="footer">
 {{#and site.links}}
   <nav class="navigation">
-    {{#each site.links}}
-      {{#and url text}}
-        <a class="navigation-item" href="{{this.url}}">{{this.text}}</a>
-      {{/and}}
-    {{/each}}
+    <ul class="navigation-items">
+      {{#each site.links}}
+        {{#and url text}}
+          <li>
+            <a class="navigation-item" href="{{this.url}}">{{this.text}}</a>
+          </li>
+        {{/and}}
+      {{/each}}
+    </ul>
   </nav>
 {{/and}}
 </footer>
