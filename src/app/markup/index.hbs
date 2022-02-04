@@ -1,11 +1,6 @@
 ---
-bodyClass: index
-scripts:
-  - ../modules/index.js
-stylesheets:
-  - ../styles/index.css
 title: Вход | Zoo-Chat
-pageHeader: Авторизация
+pageHeader: Вход
 fields:
   - label: Логин
     inputName: login
@@ -15,6 +10,7 @@ fields:
     fieldType: password
 submitButtonText: Войти
 linkText: Ещё не зарегистрированы?
+linkUrl: ./sign-up.hbs
 ---
 
 {{#extend "base"}}
@@ -22,7 +18,7 @@ linkText: Ещё не зарегистрированы?
     <main>
       <h1>{{pageHeader}}</h1>
 
-      <div>
+      <div class="content">
         <form action="">
           {{#each fields}}
             {{#and label inputName fieldType}}
@@ -37,7 +33,7 @@ linkText: Ещё не зарегистрированы?
         </form>
 
         <p>
-          <a href="./sign-up.hbs">{{linkText}}</a>
+          <a class="link" href="{{linkUrl}}">{{linkText}}</a>
         </p>
       </div>
     </main>
