@@ -4,6 +4,8 @@
     <img src="https://img.shields.io/badge/work-in--progress-orange.svg">
 </a>
 
+[PR Sprint_1](https://github.com/AlksAlena/middle.messenger.praktikum.yandex/pull/1)
+
 ## Учебный проект в рамках курса от Яндекс.Практикум.
 
 [Demo on Netlify](https://gifted-mayer-496a41.netlify.app/)
