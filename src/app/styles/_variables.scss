@@ -1,0 +1,5 @@
+$primary-bg-color: darkcyan;
+$light-primary-bg-color: scale-color($primary-bg-color, $lightness: 10%);
+$dark-primary-bg-color: scale-color($primary-bg-color, $lightness: -30%);
+$primary-text-color: #333;
+$light-grey-form-bg: #f2f2f2;

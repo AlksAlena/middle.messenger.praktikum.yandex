@@ -1,0 +1,74 @@
+@import './_variables';
+
+.chats-wrapper {
+  display: flex;
+}
+
+.chats {
+  box-sizing: border-box;
+  list-style: none;
+  width: 200px;
+}
+
+.chat-title {
+  border: 1px solid $light-primary-bg-color;
+  box-sizing: border-box;
+  margin-bottom: 2px;
+  display: flex;
+  border-radius: 5px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.title-username {
+  flex: 1;
+}
+
+.title-username a {
+  color: $primary-text-color;
+  text-decoration: none;
+  display: block;
+  padding: 15px;
+
+  &:hover {
+    color: #fff;
+    background-color: $light-primary-bg-color;
+  }
+}
+
+.title-status {
+  background-color: orange;
+  padding: 15px 0;
+  width: 15px;
+}
+
+.active-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 10px 0;
+}
+
+.messages {
+  list-style: none;
+}
+
+.message {
+  background: aliceblue;
+  padding: 10px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.editor {
+  display: flex;
+}
+
+.editor-message {
+  resize: none;
+  flex: 1;
+  padding: 5px;
+}

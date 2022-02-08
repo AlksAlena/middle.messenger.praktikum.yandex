@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru" dir="ltr">
+{{#block "head"}}
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Alyona Eley">
+    <meta name="description" content="Training project - Messenger">
+    <meta name="keywords" content="messenger, chat">
+
+    {{#block "title"}}
+      <title>{{title}}</title>
+    {{/block}}
+
+    <link rel="shortcut icon" href="../../assets/images/parcel.png" type="image/png">
+    <link href="../styles/index.scss" rel="stylesheet">
+  </head>
+{{/block}}
+
+{{#block "body"}}
+  <body>
+  {{#block "header"}}
+    {{> header}}
+  {{/block}}
+
+  {{#block "main"}}
+  {{/block}}
+
+  {{#block "footer"}}
+    {{> footer}}
+  {{/block}}
+
+  <script defer src="../modules/index.js" type="module"></script>
+  </body>
+{{/block}}
+</html>

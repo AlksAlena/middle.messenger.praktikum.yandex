@@ -1,0 +1,27 @@
+{
+  "domain": "www.example.com",
+  "protocol": "http",
+  "links": [{
+    "text": "Вход",
+    "url": "./index.hbs"
+  }, {
+    "text": "Регистрация",
+    "url": "./sign-up.hbs"
+  }, {
+    "text": "Список чатов",
+    "url": "./chats.hbs"
+  }, {
+    "text": "Настройки пользователя",
+    "url": "./profile.hbs"
+  }, {
+    "text": "404",
+    "url": "./404.hbs"
+  }, {
+    "text": "5**",
+    "url": "./5**.hbs"
+  }],
+  "linkToMainPage": {
+    "text": "На главную",
+    "url": "./chats.hbs"
+  }
+}

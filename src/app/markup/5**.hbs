@@ -1,0 +1,20 @@
+---
+title: Ошибка сервера | Zoo-Chat
+pageHeader: Ошибка сервера
+---
+
+{{#extend "base"}}
+  {{#content "main"}}
+    <main>
+      <div class="content">
+        <h1>{{pageHeader}}</h1>
+
+        {{#and site.linkToMainPage.url site.linkToMainPage.text}}
+          <p>
+            <a class="link" href="{{site.linkToMainPage.url}}">{{site.linkToMainPage.text}}</a>
+          </p>
+        {{/and}}
+      </div>
+    </main>
+  {{/content}}
+{{/extend}}
