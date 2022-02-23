@@ -1,4 +1,4 @@
-@import './_variables';
+@import "./_variables";
 
 .footer {
   background-color: $primary-bg-color;
@@ -22,6 +22,6 @@
   border-bottom: 1px dashed #fff;
 
   &:hover {
-    border-bottom-color: $dark-primary-bg-color ;
+    border-bottom-color: $dark-primary-bg-color;
   }
 }
