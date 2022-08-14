@@ -1,12 +1,10 @@
 # Zoo-Chat
 
-[PR Sprint_1](https://github.com/AlksAlena/middle.messenger.praktikum.yandex/pull/1)
-
 <a href="#">
     <img src="https://img.shields.io/badge/work-in--progress-orange.svg">
 </a>
 
-[PR Sprint_1](https://github.com/AlksAlena/middle.messenger.praktikum.yandex/pull/1)
+[PR Sprint_2](https://github.com/AlksAlena/middle.messenger.praktikum.yandex/pull/2)
 
 ## Учебный проект в рамках курса от Яндекс.Практикум.
 
