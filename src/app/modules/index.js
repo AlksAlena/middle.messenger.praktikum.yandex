@@ -1,1 +1,1 @@
-console.log('open index.html page!');
+console.log('open Index.html page!');

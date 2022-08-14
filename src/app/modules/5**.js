@@ -1,1 +1,1 @@
-console.log('open 5**.html page!');
+console.log('open ServerError.html page!');

@@ -1,21 +1,22 @@
-import EventBus from "./EventBus";
+import EventBus from './EventBus';
 
 export default class Block {
   static EVENTS = {
-    INIT: "init",
-    FLOW_CDM: "flow:component-did-mount",
-    FLOW_CDU: "flow:component-did-update",
-    FLOW_RENDER: "flow:render"
+    INIT: 'init',
+    FLOW_CDM: 'flow:component-did-mount',
+    FLOW_CDU: 'flow:component-did-update',
+    FLOW_RENDER: 'flow:render',
   };
 
   _element = null;
+
   _meta = null;
 
-  constructor(tagName = "div", props = {}) {
+  constructor(tagName = 'div', props = {}) {
     const eventBus = new EventBus();
     this._meta = {
       tagName,
-      props
+      props,
     };
 
     this.props = this._makePropsProxy(props);
@@ -36,7 +37,6 @@ export default class Block {
   _createResources() {
     const { tagName } = this._meta;
     this._element = this._createDocumentElement(tagName);
-
   }
 
   init() {
@@ -65,7 +65,7 @@ export default class Block {
     return true;
   }
 
-  setProps = nextProps => {
+  setProps = (nextProps) => {
     if (!nextProps) {
       return;
     }
