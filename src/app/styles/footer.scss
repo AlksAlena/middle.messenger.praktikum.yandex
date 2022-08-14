@@ -3,7 +3,7 @@
 .footer {
   background-color: $primary-bg-color;
   height: 70px;
-  color: #fff;
+  color: $white;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -16,10 +16,10 @@
   font-size: 0.9em;
   display: inline-block;
   text-decoration: none;
-  color: #fff;
+  color: $white;
   padding: 5px 0;
   margin: 0 5px;
-  border-bottom: 1px dashed #fff;
+  border-bottom: 1px dashed $white;
 
   &:hover {
     border-bottom-color: $dark-primary-bg-color;

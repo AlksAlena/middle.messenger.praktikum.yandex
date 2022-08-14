@@ -33,13 +33,13 @@
   padding: 15px;
 
   &:hover {
-    color: #fff;
+    color: $white;
     background-color: $light-primary-bg-color;
   }
 }
 
 .title-status {
-  background-color: orange;
+  background-color: $orange;
   padding: 15px 0;
   width: 15px;
 }
