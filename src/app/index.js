@@ -1,6 +1,7 @@
 import render from "./utils/render";
 import Button from "./сomponents/Button/Button";
 import Input from "./сomponents/Input/Input";
+import Nav from "./сomponents/Nav/Nav";
 
 const button = new Button({
   text: 'Click me',
@@ -13,8 +14,23 @@ const input = new Input({
   type: 'text'
 });
 
+const nav = new Nav(
+  'nav',
+  {
+    links: [
+      { title: "Вход", url: "./index.hbs" },
+      { title: "Регистрация", url: "./sign-up.hbs" },
+      { title: "Список чатов", url: "./chats.hbs" },
+      { title: "Настройки пользователя", url: "./profile.hbs" },
+      { title: "404", url: "./404.hbs" },
+      { title: "5**", url: "./5**.hbs" }
+    ]
+  }
+);
+
 document.addEventListener('DOMContentLoaded', () => {
   render(".app", input);
   render(".app", button);
+  render(".app", nav);
 });
 
