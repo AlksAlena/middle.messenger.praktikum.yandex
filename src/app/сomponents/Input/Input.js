@@ -5,7 +5,7 @@ import Block from "../../services/Block"
 export default class Input extends Block {
   constructor(props) {
     super("div", props);
-    // к обертке добавить класс className="form-field"
+    this.getContent().classList.add("form-field");
   }
 
   render() {
