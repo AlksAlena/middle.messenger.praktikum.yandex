@@ -4,7 +4,8 @@ import Block from "../../services/Block";
 
 export default class Button extends Block {
   constructor(props) {
-    super("button", props);
+    super("p", props);
+    this.getContent().classList.add("button-wrapper");
   }
 
   render() {
