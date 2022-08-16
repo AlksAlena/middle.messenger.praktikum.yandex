@@ -1,6 +1,6 @@
 import Handlebars from 'handlebars';
 import template from './input.tmpl';
-import Block from '../../services/Block';
+import Block from '../../../services/Block';
 
 export default class Input extends Block {
   constructor(props) {
@@ -9,7 +9,6 @@ export default class Input extends Block {
   }
 
   render() {
-    const compiled = Handlebars.compile(template);
-    return compiled(this.props);
+    return Handlebars.compile(template)(this.props);
   }
 }
