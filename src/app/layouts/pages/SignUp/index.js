@@ -1,7 +1,7 @@
 import Handlebars from 'handlebars';
 import Block from '../../../services/Block';
 import template from './tmpl';
-import Page from "../../сomponents/IndexPage/IndexPage";
+import Page from '../../сomponents/IndexPage/IndexPage';
 
 export default class SignUpPage extends Block {
   render() {
@@ -22,4 +22,4 @@ const props = {
   formTitle: 'Регистрация',
   submitButtonText: 'Зарегистрироваться',
 };
-const signUpPage = new Page('div', {...props});
+const signUpPage = new Page('div', { ...props });

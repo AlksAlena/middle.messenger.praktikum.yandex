@@ -1,7 +1,7 @@
 import Handlebars from 'handlebars';
 import Block from '../../../services/Block';
 import template from './tmpl';
-import Page from "../../сomponents/IndexPage/IndexPage";
+import Page from '../../сomponents/IndexPage/IndexPage';
 
 export default class ChatsPage extends Block {
   render() {
@@ -16,9 +16,13 @@ const props = {
       userName: 'Катя',
       status: 'online',
       messages: [
-        {text: 'Привет, как дела?', type: 'out', status: 'ok', date: '15-02-2022, 18:15'},
-        {text: 'Спасибо, отлично! А ты как?', type: 'in', status: 'ok', date: '15-02-2022, 18:17'},
-      ]
+        {
+          text: 'Привет, как дела?', type: 'out', status: 'ok', date: '15-02-2022, 18:15',
+        },
+        {
+          text: 'Спасибо, отлично! А ты как?', type: 'in', status: 'ok', date: '15-02-2022, 18:17',
+        },
+      ],
     },
     { userName: 'Коля', status: 'offline', messages: [] },
     { userName: 'Оля', status: 'offline', messages: [] },
@@ -26,6 +30,6 @@ const props = {
     { userName: 'Павел Сергеевич', status: 'offline', messages: [] },
     { userName: 'Kroca', status: 'online', messages: [] },
   ],
-  submitButtonText: 'Отправить'
+  submitButtonText: 'Отправить',
 };
-const chatsPage = new Page('div', {...props});
+const chatsPage = new Page('div', { ...props });

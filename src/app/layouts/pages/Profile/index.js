@@ -1,7 +1,7 @@
 import Handlebars from 'handlebars';
 import Block from '../../../services/Block';
 import template from './tmpl';
-import Page from "../../сomponents/IndexPage/IndexPage";
+import Page from '../../сomponents/IndexPage/IndexPage';
 
 export default class ProfilePage extends Block {
   render() {
@@ -25,4 +25,4 @@ const props = {
   formTitle: 'Настройки пользователя',
   submitButtonText: 'Сохранить',
 };
-const profilePage = new Page('div', {...props});
+const profilePage = new Page('div', { ...props });

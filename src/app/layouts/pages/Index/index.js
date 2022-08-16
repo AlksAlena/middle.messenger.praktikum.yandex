@@ -1,7 +1,7 @@
 import Handlebars from 'handlebars';
 import Block from '../../../services/Block';
 import template from './tmpl';
-import Page from "../../сomponents/IndexPage/IndexPage";
+import Page from '../../сomponents/IndexPage/IndexPage';
 
 export default class IndexPage extends Block {
   render() {
@@ -17,6 +17,6 @@ const props = {
     { label: 'Пароль', name: 'password', type: 'password' },
   ],
   submitButtonText: 'Войти',
-  link: { text: 'Ещё не зарегистрированы?', url: './sign-up.hbs' }
-}
-const indexPage = new Page('div', {...props});
+  link: { text: 'Ещё не зарегистрированы?', url: './sign-up.hbs' },
+};
+const indexPage = new Page('div', { ...props });
