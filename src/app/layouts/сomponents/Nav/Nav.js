@@ -1,6 +1,6 @@
 import Handlebars from 'handlebars';
 import template from './nav.tmpl';
-import Block from '../../services/Block';
+import Block from '../../../services/Block';
 
 export default class Nav extends Block {
   constructor(tag, props) {
@@ -9,7 +9,6 @@ export default class Nav extends Block {
   }
 
   render() {
-    const compiled = Handlebars.compile(template);
-    return compiled(this.props);
+    return Handlebars.compile(template)(this.props);
   }
 }
