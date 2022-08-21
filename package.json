@@ -6,7 +6,9 @@
     "dev": "parcel src/app/markup/layouts/index.hbs",
     "build": "npm run clean && parcel build src/app/markup/layouts/index.hbs",
     "start": "npm run build && node server.js",
-    "clean": "rimraf ./dist && rimraf ./.parcel-cache"
+    "clean": "rimraf ./dist && rimraf ./.parcel-cache",
+    "style": "npx stylelint **/*.scss",
+    "style:fix": "npm run style -- --fix"
   },
   "repository": {
     "type": "git",
@@ -19,12 +21,15 @@
     "@anikin/parcel-transformer-handlebars": "^1.0.9",
     "parcel": "^2.7.0",
     "rimraf": "^3.0.2",
+    "stylelint": "^14.11.0",
+    "stylelint-config-standard": "^28.0.0",
     "typescript": "^4.7.4"
   },
   "dependencies": {
     "@parcel/transformer-sass": "^2.2.1",
     "express": "^4.17.2",
     "handlebars": "^4.7.7",
-    "parcel-plugin-handlebars": "^0.4.4"
+    "parcel-plugin-handlebars": "^0.4.4",
+    "stylelint-scss": "^4.3.0"
   }
 }
