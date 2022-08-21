@@ -12,7 +12,7 @@ interface BlockMeta {
   props: { [key: string]: any };
 }
 
-class Block {
+export class Block {
   static EVENTS = EVENTS;
 
   private _element: HTMLElement = null;
