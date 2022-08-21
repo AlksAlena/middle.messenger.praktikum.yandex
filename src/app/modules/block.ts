@@ -57,7 +57,7 @@ export class Block {
 
   private _componentDidUpdate(
     oldProps: { [key: string]: any },
-    newProps: { [key: string]: any }
+    newProps: { [key: string]: any },
   ): void {
     const needRerender: boolean = this.componentDidUpdate(oldProps, newProps);
     if (needRerender) {
@@ -67,7 +67,7 @@ export class Block {
 
   protected componentDidUpdate(
     oldProps: { [key: string]: any },
-    newProps: { [key: string]: any }
+    newProps: { [key: string]: any },
   ): boolean {
     return true;
   }
