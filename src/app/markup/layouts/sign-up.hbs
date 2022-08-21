@@ -35,7 +35,7 @@ submitButtonText: Зарегистрироваться
             {{#and label name type}}
               <li class="form-field">
                 <label class="label" for="{{name}}">{{label}}</label>
-                <input class="input" name="{{name}}" type="{{type}}">
+                <input class="input" id="{{name}}" name="{{name}}" type="{{type}}">
               </li>
             {{/and}}
           {{/each}}
