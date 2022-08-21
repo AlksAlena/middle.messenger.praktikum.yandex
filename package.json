@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "учебный проект",
   "scripts": {
-    "dev": "parcel src/app/markup/index.hbs",
-    "build": "npm run clean && parcel build src/app/markup/index.hbs",
+    "dev": "parcel src/app/markup/layouts/index.hbs",
+    "build": "npm run clean && parcel build src/app/markup/layouts/index.hbs",
     "start": "npm run build && node server.js",
     "clean": "rimraf ./dist && rimraf ./.parcel-cache"
   },
@@ -17,7 +17,8 @@
   "license": "ISC",
   "devDependencies": {
     "@anikin/parcel-transformer-handlebars": "^1.0.9",
-    "parcel": "^2.2.1"
+    "parcel": "^2.7.0",
+    "rimraf": "^3.0.2"
   },
   "dependencies": {
     "@parcel/transformer-sass": "^2.2.1",
