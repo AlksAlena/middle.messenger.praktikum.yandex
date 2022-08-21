@@ -1,0 +1,23 @@
+{
+  "noImplicitAny": true,
+  "noUnusedLocals": true,
+  "noUnusedParameters": true,
+  "sourceMap": true,
+  "strictNullChecks": true,
+  "compileOnSave": false,
+  "compilerOptions": {
+    "lib": ["es2020", "dom"],
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "es2020",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "outDir": "dist",
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  }
+}
