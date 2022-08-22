@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import EventBus from './event-bus';
 
 enum EVENTS {
@@ -7,25 +8,19 @@ enum EVENTS {
   FLOW_RENDER = 'flow:render'
 }
 
-interface BlockMeta {
-  tagName: string;
-  props: { [key: string]: any };
-}
-
 export class Block {
   static EVENTS = EVENTS;
 
   private _element: HTMLElement = null;
-  private _meta: BlockMeta = null;
-
-  props: ProxyHandler<BlockMeta> = null;
+  private _meta: any = null;
+  protected props: ProxyHandler<any> = null;
   eventBus: () => EventBus;
 
-  constructor(tagName: string = 'div', props: { [key: string]: any } = {}) {
+  constructor(props: any = {}) {
     const eventBus = new EventBus();
     this.eventBus = () => eventBus;
 
-    this._meta = { tagName, props };
+    this._meta = { props, __id: nanoid(6) };
     this.props = this._makePropsProxy(props);
 
     this._registerEvents(eventBus);
@@ -40,8 +35,6 @@ export class Block {
   }
 
   init(): void {
-    const tagName: string = this._meta?.tagName;
-    this._element = this._createDocumentElement(tagName);
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
@@ -55,24 +48,18 @@ export class Block {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
   }
 
-  private _componentDidUpdate(
-    oldProps: { [key: string]: any },
-    newProps: { [key: string]: any },
-  ): void {
-    const needRerender: boolean = this.componentDidUpdate(oldProps, newProps);
+  private _componentDidUpdate(oldProps: any, newProps: any): void {
+    const needRerender: boolean = this. componentDidUpdate(oldProps, newProps);
     if (needRerender) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
   }
 
-  protected componentDidUpdate(
-    oldProps: { [key: string]: any },
-    newProps: { [key: string]: any },
-  ): boolean {
-    return true;
+  protected componentDidUpdate(oldProps: any, newProps: any): boolean {
+    return JSON.stringify(oldProps) !== JSON.stringify(newProps);
   }
 
-  setProps = (nextProps: { [key: string]: any }) => {
+  setProps = (nextProps: any) => {
     if (!nextProps) {
       return;
     }
@@ -85,41 +72,89 @@ export class Block {
   }
 
   private _render(): void {
-    const block: string = this.render();
-    // Этот небезопасный метод для упрощения логики
-    // Используйте шаблонизатор из npm или напишите свой безопасный
-    // Нужно не в строку компилировать (или делать это правильно),
-    // либо сразу в DOM-элементы возвращать из compile DOM-ноду
-    this._element.innerHTML = block;
+    const fragment: DocumentFragment = this.render();
+    const newElement = fragment.firstElementChild as HTMLElement;
+
+    if (this._element) {
+      this._removeEvents();
+      this._element.replaceWith(newElement);
+    }
+
+    this._element = newElement;
+    this._addEvents();
   }
 
-  protected render(): any {}
+  protected render(): DocumentFragment {
+    return new DocumentFragment();
+  }
 
   getContent(): HTMLElement {
     return this.element;
   }
 
-  private _makePropsProxy(props): ProxyHandler<BlockMeta> {
+  private _makePropsProxy(props): ProxyHandler<any> {
     const block: Block = this;
     return new Proxy(props, {
-      get(target, prop): any {
+      get(target: any, prop: string | symbol): any {
         const value = target[prop];
         return typeof value === 'function' ? value.bind(target) : value;
       },
-      set(target, prop, value): boolean {
+      set(target: any, prop: string | symbol, value: any): boolean {
         const oldValue = { ...target };
         target[prop] = value;
         block.eventBus().emit(Block.EVENTS.FLOW_CDU, oldValue, target);
         return true;
       },
-      deleteProperty(target, prop): boolean {
+      deleteProperty(target: any, prop: string | symbol): boolean {
         throw new Error('Нет доступа');
       },
     });
   }
 
-  private _createDocumentElement(tagName: string): HTMLElement {
-    return document.createElement(tagName);
+  private _addEvents(): void {
+    const events: { [event: string]: () => void } = (this.props as any).events;
+    if (!events) {
+      return;
+    }
+
+    Object.entries(events).forEach(([event, listener]) => {
+      this._element!.addEventListener(event, listener);
+    });
+  }
+
+  _removeEvents(): void {
+    const events: { [event: string]: () => void} = (this.props as any).events;
+    if (!events || !this._element) {
+      return;
+    }
+
+    Object.entries(events).forEach(([event, listener]) => {
+      this._element!.removeEventListener(event, listener);
+    })
+  }
+
+  private _createDocumentElement(tag: string): HTMLElement {
+    return document.createElement(tag);
+  }
+
+  /**
+   * Используется HTMLTemplateElement под тегом 'template',
+   * такой элемент не вставляется сам по себе, а вставляет свой контент.
+   * Служит оберткой и облегчает манипулирование своим контентом.
+   * Внутри себя имеет DocumentFragment, из которого берется firstChild,
+   * т.е. первый элемент верхнего уровня.
+   * Использовать DocumentFragment напрямую, не как часть HTMLTemplateElement неудобно,
+   * потому что внутрь фрагмента нужно вставить разметку из шаблонизатора,
+   * а у фрагмента нет соответствующего апи. Однако оно есть у HTMLTemplateElement.
+   *
+   * @param template
+   * @param context
+   * @protected
+   */
+  protected compile(template: (context: any) => string, context: any): DocumentFragment {
+    const fragment = this._createDocumentElement('template') as HTMLTemplateElement;
+    fragment.innerHTML = template(context);
+    return fragment.content;
   }
 
   show(): void {

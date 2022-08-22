@@ -1,9 +1,12 @@
-import Handlebars from 'handlebars/dist/handlebars';
 import { Block } from '../../modules/block';
-import template from './tmpl';
+import template from './tmpl.hbs';
 
 export class Paragraph extends Block {
-  render(): string {
-    return Handlebars.compile(template)(this.props);
+  constructor(props: any) {
+    super(props);
+  }
+
+  render(): DocumentFragment {
+    return this.compile(template, { ...this.props });
   }
 }
