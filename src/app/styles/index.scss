@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: $primary-text-color;
+  color: $neutral-dark;
 }
 
 h1 {
@@ -39,11 +39,11 @@ ul {
 
 .link {
   text-decoration: none;
-  color: $primary-bg-color;
+  color: $primary;
   display: inline-block;
   padding: 5px;
 
   &:hover {
-    color: $dark-primary-bg-color;
+    color: $primary-dark;
   }
 }

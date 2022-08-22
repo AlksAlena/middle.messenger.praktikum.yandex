@@ -1,9 +1,9 @@
 @import './_variables';
 
 .header {
-  background-color: $primary-bg-color;
+  background-color: $primary;
   height: 70px;
-  color: #fff;
+  color: $primary-text;
   padding: 20px;
   box-sizing: border-box;
 }

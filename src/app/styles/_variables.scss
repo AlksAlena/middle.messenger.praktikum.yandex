@@ -1,5 +1,15 @@
-$primary-bg-color: darkcyan;
-$light-primary-bg-color: scale-color($primary-bg-color, $lightness: 10%);
-$dark-primary-bg-color: scale-color($primary-bg-color, $lightness: -30%);
-$primary-text-color: #333;
-$light-grey-form-bg: #f2f2f2;
+$darkcyan: #008b8b;
+$white: #fff;
+$orange: #ffa500;
+$gray95: #f2f2f2;
+$gray20: #333;
+
+$primary: $darkcyan;
+$primary-dark: scale-color($primary, $lightness: -30%);
+$primary-light: scale-color($primary, $lightness: 10%);
+$primary-text: $white;
+
+$accent: $orange;
+
+$neutral-dark: $gray20;
+$neutral-light: $gray95;
