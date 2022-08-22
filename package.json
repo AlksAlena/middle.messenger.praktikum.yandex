@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "учебный проект",
   "scripts": {
-    "dev": "parcel src/app/markup/layouts/index.hbs",
+    "dev": "parcel src/app/markup/layouts/index.hbs --port 3000",
     "build": "npm run clean && parcel build src/app/markup/layouts/index.hbs",
     "start": "npm run build && node server.js",
     "clean": "rimraf ./dist && rimraf ./.parcel-cache",
