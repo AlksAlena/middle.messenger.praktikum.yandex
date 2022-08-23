@@ -1,6 +1,11 @@
 import { nanoid } from 'nanoid';
 import EventBus from './event-bus';
 
+interface PropsAndChildren {
+  props: any;
+  children: { [key: string]: Block };
+}
+
 enum EVENTS {
   INIT = 'init',
   FLOW_CDM = 'flow:component-did-mount',
@@ -14,14 +19,19 @@ export class Block {
   private _element: HTMLElement = null;
   private _meta: any = null;
   protected props: ProxyHandler<any> = null;
+  protected children: ProxyHandler<any> = null;
   eventBus: () => EventBus;
 
-  constructor(props: any = {}) {
+  id: string = nanoid(6);
+
+  constructor(propsAndChildren: any = {}) {
     const eventBus = new EventBus();
     this.eventBus = () => eventBus;
 
-    this._meta = { props, __id: nanoid(6) };
+    const { props, children } = this._getPropsAndChildren(propsAndChildren);
     this.props = this._makePropsProxy(props);
+    this.children = this._makePropsProxy(children);
+    this._meta = { props };
 
     this._registerEvents(eventBus);
     eventBus.emit(Block.EVENTS.INIT);
@@ -92,6 +102,23 @@ export class Block {
     return this.element;
   }
 
+  private _getPropsAndChildren(propsAndChildren: any): PropsAndChildren {
+    const props: any = {};
+    const children: { [key: string]: Block } = {};
+
+    Object.entries(propsAndChildren).forEach(([key, value]) => {
+      if (value instanceof Block) {
+        children[key] = value;
+      } else if (Array.isArray(value) && value.every(elem => elem instanceof Block)) {
+        console.log('array of children');
+      } else {
+        props[key] = value;
+      }
+    });
+
+    return { props, children };
+  }
+
   private _makePropsProxy(props): ProxyHandler<any> {
     const block: Block = this;
     return new Proxy(props, {
@@ -153,7 +180,25 @@ export class Block {
    */
   protected compile(template: (context: any) => string, context: any): DocumentFragment {
     const fragment = this._createDocumentElement('template') as HTMLTemplateElement;
+    Object.entries(this.children).forEach(([key, child]) => {
+      if (Array.isArray(child)) {
+        context[key] = child.map(ch => context[key] = `<div data-id="id-${ch.id}"></div>`);
+        return;
+      }
+      context[key] = `<div data-id="id-${child.id}"></div>`;
+    });
+
     fragment.innerHTML = template(context);
+
+    Object.entries(this.children).forEach(([key, child]) => {
+      // добавить обработку массива компонентов
+      const stub = fragment.content.querySelector(`[data-id="id-${child.id}"]`);
+      if (!stub) {
+        return;
+      }
+      stub.replaceWith(child.getContent()!);
+    });
+
     return fragment.content;
   }
 
