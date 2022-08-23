@@ -1,36 +1,38 @@
 import { Block } from '../../modules/block';
 import template from './index-page.hbs';
-import { Button } from '../../components/button/button';
+import Button from '../../components/button';
 
 interface IndexPageProps {
   title: string;
   fields: { [key: string]: string }[];
   button: Block;
+  link: { text: string, url: string }
 }
 
 export class IndexPage extends Block {
   constructor() {
     const button = new Button({
       class: 'button',
-      text: 'Click me!',
-      type: 'reset',
-      events: { click: () => console.log('click!') }
+      text: 'Войти',
+      type: 'submit',
+      events: {
+        click: () => console.log('click!')
+      }
     });
 
+    // title: Вход | Zoo-Chat
     const props: IndexPageProps = {
-      title: 'Регистрация',
+      title: 'Вход',
       fields: [
-        { name: 'first_name', inputClass: 'input', type: 'text', labelClass: 'label', labelText: 'Имя'},
-        { name: 'second_name', inputClass: 'input', type: 'text', labelClass: 'label', labelText: 'Фамилия'},
+        { name: 'login', inputClass: 'input', type: 'text', labelClass: 'label', labelText: 'Логин'},
+        { name: 'password', inputClass: 'input', type: 'password', labelClass: 'label', labelText: 'Пароль'},
       ],
+      link: { text: 'Ещё не зарегистрированы?', url: './sign-up.html'},
       button: button
     };
 
     super(props);
   }
-
-  // можно создать необязательный метод initChildren();
-  // protected initChildren(), который будет вызываться в Block.constructor()
 
   protected render(): DocumentFragment {
     return this.compile(template, {...this.props});
