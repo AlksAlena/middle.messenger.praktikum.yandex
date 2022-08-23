@@ -1,7 +1,9 @@
 import { render } from '../utils/render';
 import IndexPage from '../pages/index-page';
+import BasePage from '../pages/base-page';
 
 document.addEventListener('DOMContentLoaded', () => {
   const indexPage = new IndexPage();
-  render('#app', indexPage);
+  const basePage = new BasePage({ outlet: indexPage });
+  render('#app', basePage);
 });
