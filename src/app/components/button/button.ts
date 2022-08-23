@@ -1,5 +1,5 @@
 import { Block } from '../../modules/block';
-import template from './tmpl.hbs';
+import template from './button.hbs';
 
 type ButtonType = 'button' | 'submit' | 'reset';
 
@@ -17,7 +17,6 @@ export class Button extends Block {
     super(props);
   }
 
-  // p.button-wrapper
   protected render(): DocumentFragment {
     return this.compile(template, { ...this.props });
   }
