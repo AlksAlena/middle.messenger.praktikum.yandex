@@ -1,0 +1,20 @@
+<main>
+  <div class="content">
+    <form class="form" action="">
+      <h1> {{ title }} </h1>
+
+      <ul class="form-fields">
+        {{#each fields}}
+          <li class="form-field">
+            <label class="{{ labelClass }}" for="{{ name }}">{{ labelText }}</label>
+            <input class="{{ inputClass }}" id="{{ name }}" name="{{ name }}" type="{{ type }}">
+          </li>
+        {{/each}}
+      </ul>
+
+      <p class="button-wrapper">
+        {{ button }}
+      </p>
+    </form>
+  </div>
+</main>
