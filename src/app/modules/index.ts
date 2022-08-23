@@ -4,6 +4,6 @@ import BasePage from '../pages/base-page';
 
 document.addEventListener('DOMContentLoaded', () => {
   const indexPage = new IndexPage();
-  const basePage = new BasePage({ outlet: indexPage });
+  const basePage = new BasePage({ content: indexPage });
   render('#app', basePage);
 });
