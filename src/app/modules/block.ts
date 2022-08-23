@@ -59,7 +59,7 @@ export class Block {
   }
 
   private _componentDidUpdate(oldProps: any, newProps: any): void {
-    const needRerender: boolean = this. componentDidUpdate(oldProps, newProps);
+    const needRerender: boolean = this.componentDidUpdate(oldProps, newProps);
     if (needRerender) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
@@ -74,7 +74,15 @@ export class Block {
       return;
     }
 
-    Object.assign(this.props, nextProps);
+    const { children, props } = this._getPropsAndChildren(nextProps);
+
+    if (Object.values(children).length) {
+      Object.assign(this.children, children);
+    }
+
+    if (Object.values(props).length) {
+      Object.assign(this.props, props);
+    }
   };
 
   get element(): HTMLElement {
