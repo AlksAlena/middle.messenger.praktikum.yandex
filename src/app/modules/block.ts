@@ -1,16 +1,10 @@
 import { nanoid } from 'nanoid';
-import EventBus from './event-bus';
+import { EVENTS, EventBus } from './event-bus';
+import { makePropsProxy } from '../utils/proxy';
 
 interface PropsAndChildren {
   props: any;
   children: { [key: string]: Block };
-}
-
-enum EVENTS {
-  INIT = 'init',
-  FLOW_CDM = 'flow:component-did-mount',
-  FLOW_CDU = 'flow:component-did-update',
-  FLOW_RENDER = 'flow:render'
 }
 
 export class Block {
@@ -127,23 +121,8 @@ export class Block {
     return { props, children };
   }
 
-  private _makePropsProxy(props): ProxyHandler<any> {
-    const block: Block = this;
-    return new Proxy(props, {
-      get(target: any, prop: string | symbol): any {
-        const value = target[prop];
-        return typeof value === 'function' ? value.bind(target) : value;
-      },
-      set(target: any, prop: string | symbol, value: any): boolean {
-        const oldValue = { ...target };
-        target[prop] = value;
-        block.eventBus().emit(Block.EVENTS.FLOW_CDU, oldValue, target);
-        return true;
-      },
-      deleteProperty(target: any, prop: string | symbol): boolean {
-        throw new Error('Нет доступа');
-      },
-    });
+  private _makePropsProxy(props: any): ProxyHandler<any> {
+    return makePropsProxy(props, this.eventBus());
   }
 
   private _addEvents(): void {
