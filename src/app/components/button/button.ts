@@ -14,6 +14,7 @@ interface ButtonProps {
 
 export class Button extends Block {
   constructor(props: ButtonProps) {
+    props = props?.text ? props : { text: 'Click me', type: 'button' };
     super(props);
   }
 
@@ -21,7 +22,10 @@ export class Button extends Block {
     return this.compile(template, { ...this.props });
   }
 
-  protected componentDidUpdate(oldProps: any, newProps: any): boolean {
-    return oldProps.text !== newProps.text;
+  protected componentDidUpdate(oldProps: ButtonProps, newProps: ButtonProps): boolean {
+    const { text: oldText, class: oldClass } = oldProps;
+    const { text: newText, class: newClass } = newProps;
+
+    return oldText !== newText || oldClass !== newClass;
   }
 }
