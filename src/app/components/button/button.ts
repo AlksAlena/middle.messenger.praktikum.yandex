@@ -14,7 +14,9 @@ interface ButtonProps {
 
 export class Button extends Block {
   constructor(props: ButtonProps) {
-    props = props?.text ? props : { text: 'Click me', type: 'button' };
+    const initialProps: ButtonProps = { text: 'Click me', type: 'button', class: 'button' };
+    props = props?.text ? props : initialProps;
+
     super(props);
   }
 

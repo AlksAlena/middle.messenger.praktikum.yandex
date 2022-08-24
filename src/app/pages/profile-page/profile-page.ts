@@ -11,7 +11,6 @@ interface ProfilePageProps {
 export class ProfilePage extends Block {
   constructor() {
     const button = new Button({
-      class: 'button',
       text: 'Сохранить',
       events: {
         click: () => console.log('click!')

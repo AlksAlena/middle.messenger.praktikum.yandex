@@ -11,7 +11,6 @@ interface SignUpPageProps {
 export class SignUpPage extends Block {
   constructor() {
     const button = new Button({
-      class: 'button',
       text: 'Зарегистрироваться',
       events: {
         click: () => console.log('click!')

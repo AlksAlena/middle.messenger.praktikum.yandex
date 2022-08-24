@@ -12,7 +12,6 @@ interface IndexPageProps {
 export class IndexPage extends Block {
   constructor() {
     const button = new Button({
-      class: 'button',
       text: 'Войти',
       events: {
         click: () => console.log('click!')
