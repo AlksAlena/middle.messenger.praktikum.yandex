@@ -4,7 +4,7 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 
 export class BasePage extends Block {
-  constructor(props: { content: Block | string }) {
+  constructor(props: { content: Block }) {
     const header = new Header();
     const footer = new Footer();
     super({ ...props, header, footer });
