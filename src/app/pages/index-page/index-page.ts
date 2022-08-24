@@ -14,7 +14,6 @@ export class IndexPage extends Block {
     const button = new Button({
       class: 'button',
       text: 'Войти',
-      type: 'submit',
       events: {
         click: () => console.log('click!')
       }

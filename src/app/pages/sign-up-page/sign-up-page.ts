@@ -13,7 +13,6 @@ export class SignUpPage extends Block {
     const button = new Button({
       class: 'button',
       text: 'Зарегистрироваться',
-      type: 'submit',
       events: {
         click: () => console.log('click!')
       }
