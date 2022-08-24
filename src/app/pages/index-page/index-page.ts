@@ -1,12 +1,10 @@
 import { Block } from '../../modules/block';
 import template from './index-page.hbs';
 import Button from '../../components/button';
+import Form from '../../components/form';
 
 interface IndexPageProps {
-  title: string;
-  fields: { [key: string]: string }[];
-  button: Block;
-  link: { text: string, url: string }
+  form: Form;
 }
 
 export class IndexPage extends Block {
@@ -19,17 +17,17 @@ export class IndexPage extends Block {
     });
 
     // title: Вход | Zoo-Chat
-    const props: IndexPageProps = {
+    const form = new Form({
       title: 'Вход',
       fields: [
         { name: 'login', inputClass: 'input', type: 'text', labelClass: 'label', labelText: 'Логин'},
         { name: 'password', inputClass: 'input', type: 'password', labelClass: 'label', labelText: 'Пароль'},
       ],
       link: { text: 'Ещё не зарегистрированы?', url: './sign-up.html'},
-      button: button
-    };
+      button
+    });
 
-    super(props);
+    super({ form });
   }
 
   protected render(): DocumentFragment {

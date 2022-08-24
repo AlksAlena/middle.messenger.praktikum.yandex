@@ -1,11 +1,10 @@
 import { Block } from '../../modules/block';
 import template from './sign-up-page.hbs';
 import Button from '../../components/button';
+import Form from '../../components/form';
 
 interface SignUpPageProps {
-  title: string;
-  fields: { [key: string]: string }[];
-  button: Block;
+  form: Form;
 }
 
 export class SignUpPage extends Block {
@@ -18,7 +17,7 @@ export class SignUpPage extends Block {
     });
 
     // title: Регистрация | Zoo-Chat
-    const props: SignUpPageProps = {
+    const form = new Form({
       title: 'Регистрация',
       fields: [
         { name: 'first_name', inputClass: 'input', type: 'text', labelClass: 'label', labelText: 'Имя'},
@@ -28,10 +27,10 @@ export class SignUpPage extends Block {
         { name: 'email', inputClass: 'input', type: 'email', labelClass: 'label', labelText: 'Почта'},
         { name: 'phone', inputClass: 'input', type: 'phone', labelClass: 'label', labelText: 'Телефон'},
       ],
-      button: button
-    };
+      button
+    });
 
-    super(props);
+    super({ form });
   }
 
   protected render(): DocumentFragment {

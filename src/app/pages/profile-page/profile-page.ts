@@ -1,11 +1,10 @@
 import { Block } from '../../modules/block';
 import template from './profile-page.hbs';
 import Button from '../../components/button';
+import Form from '../../components/form';
 
 interface ProfilePageProps {
-  title: string;
-  fields: { [key: string]: string }[];
-  button: Block;
+  form: Form;
 }
 
 export class ProfilePage extends Block {
@@ -18,7 +17,7 @@ export class ProfilePage extends Block {
     });
 
     // title: Настройки пользователя | Zoo-Chat
-    const props: ProfilePageProps = {
+    const form = new Form({
       title: 'Настройки пользователя',
       fields: [
         { name: 'first_name', inputClass: 'input', type: 'text', labelClass: 'label', labelText: 'Имя'},
@@ -31,10 +30,10 @@ export class ProfilePage extends Block {
         { name: 'oldPassword', inputClass: 'input', type: 'password', labelClass: 'label', labelText: 'Старый пароль'},
         { name: 'newPassword', inputClass: 'input', type: 'password', labelClass: 'label', labelText: 'Новый пароль'},
       ],
-      button: button
-    };
+      button
+    });
 
-    super(props);
+    super({ form });
   }
 
   protected render(): DocumentFragment {
