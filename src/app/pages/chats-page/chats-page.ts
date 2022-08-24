@@ -26,6 +26,7 @@ export class ChatsPage extends Block {
   constructor() {
     const button = new Button({
       text: 'Отправить',
+      type: 'submit',
       events: {
         click: () => console.log('click!')
       }

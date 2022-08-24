@@ -11,6 +11,7 @@ export class ProfilePage extends Block {
   constructor() {
     const button = new Button({
       text: 'Сохранить',
+      type: 'submit',
       events: {
         click: () => console.log('click!')
       }
