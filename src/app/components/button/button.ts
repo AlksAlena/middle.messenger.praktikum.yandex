@@ -5,7 +5,7 @@ type ButtonType = 'button' | 'submit' | 'reset';
 
 interface ButtonProps {
   text: string;
-  class?: string;
+  cssClass?: string;
   type?: ButtonType;
   events?: {
     click?: () => void
@@ -14,10 +14,8 @@ interface ButtonProps {
 
 export class Button extends Block {
   constructor(props: ButtonProps) {
-    const initialProps: ButtonProps = { text: 'Click me', type: 'button', class: 'button' };
-    props = props?.text ? props : initialProps;
-
-    super(props);
+    const { text = 'Click me', type = 'button', cssClass = 'button', events = [] } = props || {};
+    super({ text, type, cssClass, events });
   }
 
   protected render(): DocumentFragment {
@@ -25,8 +23,8 @@ export class Button extends Block {
   }
 
   protected componentDidUpdate(oldProps: ButtonProps, newProps: ButtonProps): boolean {
-    const { text: oldText, class: oldClass } = oldProps;
-    const { text: newText, class: newClass } = newProps;
+    const { text: oldText, cssClass: oldClass } = oldProps;
+    const { text: newText, cssClass: newClass } = newProps;
 
     return oldText !== newText || oldClass !== newClass;
   }
