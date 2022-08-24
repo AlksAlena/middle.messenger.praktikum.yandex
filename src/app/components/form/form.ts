@@ -6,7 +6,7 @@ interface FormProps {
   title: string;
   fields: { [key: string]: string }[];
   button?: Button;
-  link?: { text: string, url: string };
+  link?: { text: string, url: string, class?: string };
 }
 
 export class Form extends Block {

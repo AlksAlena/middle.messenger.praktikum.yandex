@@ -6,17 +6,7 @@ interface ErrorPageProps {
   message: string;
 }
 export class ErrorPage extends Block {
-  constructor() {
-    // title: 500. Ошибка сервера | Zoo-Chat
-    // message: Ошибка сервера
-
-    // title: 404. Страница не существует | Zoo-Chat
-    // pageHeader: Страница не существует
-    const props: ErrorPageProps = {
-      link: { text: 'На главную', url: './index.html'},
-      message: 'Ошибка сервера'
-    };
-
+  constructor(props: ErrorPageProps) {
     super(props);
   }
 

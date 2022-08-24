@@ -23,7 +23,7 @@ export class IndexPage extends Block {
         { name: 'login', inputClass: 'input', type: 'text', labelClass: 'label', labelText: 'Логин'},
         { name: 'password', inputClass: 'input', type: 'password', labelClass: 'label', labelText: 'Пароль'},
       ],
-      link: { text: 'Ещё не зарегистрированы?', url: './sign-up.html'},
+      link: { text: 'Ещё не зарегистрированы?', url: 'sign-up.html', class: 'navigation link' },
       button
     });
 
