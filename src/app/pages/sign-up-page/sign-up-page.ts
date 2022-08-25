@@ -2,7 +2,7 @@ import { Block } from '../../modules/block';
 import template from './sign-up-page.hbs';
 import Button from '../../components/button';
 import Form from '../../components/form';
-import { patterns } from '../../modules/validators';
+import { patterns } from '../../utils/validators';
 
 
 export class SignUpPage extends Block {

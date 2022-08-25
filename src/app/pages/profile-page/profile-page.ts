@@ -2,7 +2,7 @@ import { Block } from '../../modules/block';
 import template from './profile-page.hbs';
 import Button from '../../components/button';
 import Form from '../../components/form';
-import { patterns } from '../../modules/validators';
+import { patterns } from '../../utils/validators';
 
 interface ProfilePageProps {
   form: Form;
