@@ -3,16 +3,14 @@ import template from './index-page.hbs';
 import Button from '../../components/button';
 import Form from '../../components/form';
 
-interface IndexPageProps {
-  form: Form;
-}
 
 export class IndexPage extends Block {
   constructor() {
     const button = new Button({
       text: 'Войти',
+      type: 'submit',
       events: {
-        click: () => console.log('click!')
+        click: (e) => e.preventDefault()
       }
     });
 
