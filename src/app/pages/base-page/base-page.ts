@@ -29,7 +29,7 @@ export class BasePage extends Block {
   }
 
   private goToPage(url: string): void {
-    this.setProps({ content: this._routes[url] });
+    this.setProps({ content: this._routes[url]() });
   }
 
   protected render(): DocumentFragment {
