@@ -12,6 +12,7 @@ export class IndexPage extends Block {
       type: 'submit'
     });
 
+    // не поняла как менять в <head> значение <title> для разных страниц
     // title: Вход | Zoo-Chat
     const form = new Form({
       title: 'Вход',

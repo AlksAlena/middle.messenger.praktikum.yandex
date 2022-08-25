@@ -65,13 +65,11 @@ export class Form extends Block {
   }
 
   static blurHandler(e): void {
-    console.log('blur on input: ', e.target);
     const input: HTMLInputElement = e.target;
     Form.checkInputValidity(input);
   }
 
   static focusHandler(e): void {
-    console.log('focus on input: ', e.target);
     const input: HTMLInputElement = e.target;
     Form.checkInputValidity(input);
   }
@@ -79,7 +77,13 @@ export class Form extends Block {
   static checkInputValidity(input: HTMLInputElement): void {
     const { patternMismatch, valueMissing, valid } = input.validity;
     const errorMsg: HTMLElement = document.querySelector(`[data-input="input-name-${input.name}"]`);
-    errorMsg.innerText = valid ? '' : 'Error!';
     errorMsg.style.display = valid ? 'none' : 'inline-block';
+    if (valueMissing) {
+      errorMsg.innerText = 'Поле обязательное';
+    }
+
+    if (patternMismatch) {
+      errorMsg.innerText = `Некорректный формат, паттерн: ${input.pattern}`;
+    }
   }
 }
