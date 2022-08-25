@@ -5,7 +5,19 @@
     {{#each fields}}
       <li class="form-field">
         <label class="{{ labelClass }}" for="{{ name }}">{{ labelText }}</label>
-        <input class="{{ inputClass }}" id="{{ name }}" name="{{ name }}" type="{{ type }}">
+        <div>
+          <input class="{{ inputClass }}"
+                 id="{{ name }}"
+                 name="{{ name }}"
+                 type="{{ type }}"
+                {{#if required}}
+                 required="{{ required }}"
+                {{/if}}
+                {{#if pattern}}
+                 pattern="{{ pattern }}"
+                {{/if}}>
+          <span class="error-msg" data-input="input-name-{{ name }}">{{ errorMsg }}</span>
+        </div>
       </li>
     {{/each}}
   </ul>

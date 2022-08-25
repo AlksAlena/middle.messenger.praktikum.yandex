@@ -4,7 +4,7 @@ import Button from '../button';
 
 interface FormProps {
   title: string;
-  fields: { [key: string]: string | RegExp }[];
+  fields: { [key: string]: string | RegExp | boolean }[];
   button?: Button;
   link?: { text: string, url: string, class?: string };
   events?: {
@@ -78,7 +78,7 @@ export class Form extends Block {
 
   static checkInputValidity(input: HTMLInputElement): void {
     const { patternMismatch, valueMissing, valid } = input.validity;
-    const errorMsg: HTMLElement = document.querySelector(`[data-input="${input.name}"]`);
+    const errorMsg: HTMLElement = document.querySelector(`[data-input="input-name-${input.name}"]`);
     errorMsg.innerText = valid ? '' : 'Error!';
     errorMsg.style.display = valid ? 'none' : 'inline-block';
   }
