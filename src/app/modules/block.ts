@@ -38,7 +38,7 @@ export class Block {
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
-  init(): void {
+  protected init(): void {
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
@@ -136,7 +136,7 @@ export class Block {
     });
   }
 
-  _removeEvents(): void {
+  private _removeEvents(): void {
     const events: { [event: string]: () => void} = (this.props as any).events;
     if (!events || !this._element) {
       return;
