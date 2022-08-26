@@ -1,11 +1,10 @@
 {
-  "noImplicitAny": true,
-  "noUnusedLocals": true,
-  "noUnusedParameters": true,
-  "sourceMap": true,
-  "strictNullChecks": true,
   "compileOnSave": false,
   "compilerOptions": {
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
     "lib": ["es2020", "dom"],
     "sourceMap": true,
     "declaration": false,
