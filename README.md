@@ -4,11 +4,11 @@
     <img src="https://img.shields.io/badge/work-in--progress-orange.svg">
 </a>
 
-[PR Sprint_2](https://github.com/AlksAlena/middle.messenger.praktikum.yandex/pull/1)
+[PR Sprint_2](https://github.com/AlksAlena/middle.messenger.praktikum.yandex/pull/3)
 
 ## Учебный проект в рамках курса от Яндекс.Практикум.
 
-[Demo on Netlify](https://gifted-mayer-496a41.netlify.app/)
+[Demo on Netlify](https://6307332e6c69205fa30fa78f--taupe-kelpie-f2a8a6.netlify.app/)
 
 ### Описание проекта
 
