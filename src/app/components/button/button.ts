@@ -8,7 +8,7 @@ interface ButtonProps {
   cssClass?: string;
   type?: ButtonType;
   events?: {
-    click?: (e) => void
+    click?: (e: Event) => void
   }
 }
 

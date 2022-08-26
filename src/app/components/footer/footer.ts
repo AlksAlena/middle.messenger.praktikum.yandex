@@ -3,7 +3,7 @@ import template from './footer.hbs';
 
 interface FooterProps {
   links: { text: string, url: string }[];
-  events?: { click?: (e) => void };
+  events?: { click?: (e: Event) => void };
 }
 
 export class Footer extends Block {
@@ -20,8 +20,8 @@ export class Footer extends Block {
       events: {
         click: (e) => {
           e.preventDefault();
-          const target = e.target;
-          const isLink = target.hasAttribute('href');
+          const target: HTMLElement = e.target as HTMLElement;
+          const isLink: boolean = target.hasAttribute('href');
           if (!isLink) {
             e.stopPropagation();
             return false;

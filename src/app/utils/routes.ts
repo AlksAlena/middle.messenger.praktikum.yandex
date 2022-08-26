@@ -4,7 +4,7 @@ import ErrorPage from '../pages/error-page';
 import ProfilePage from '../pages/profile-page';
 import SignUpPage from '../pages/sign-up-page';
 
-export const routes = {
+export const routes: Record<string, Function> = {
   'index.html': () => new IndexPage(),
   'chats.html': () => new ChatsPage(),
   '404.html': () => new ErrorPage({

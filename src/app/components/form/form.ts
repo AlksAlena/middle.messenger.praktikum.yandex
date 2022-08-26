@@ -8,8 +8,8 @@ interface FormProps {
   button?: Button;
   link?: { text: string, url: string, class?: string };
   events?: {
-    submit?: (e) => void,
-    click?: (e) => void
+    submit?: (e: Event) => void,
+    click?: (e: Event) => void
   }
 }
 
@@ -37,8 +37,8 @@ export class Form extends Block {
     return this.compile(template, { ...this.props });
   }
 
-  static submitHandler(e): void {
-    const form: HTMLFormElement = e.currentTarget;
+  static submitHandler(e: Event): void {
+    const form: HTMLFormElement = e.currentTarget as HTMLFormElement;
     const formValue: { [key: string]: string | number } = {};
     const inputs: NodeListOf<HTMLInputElement> = form.querySelectorAll('input');
 
@@ -51,10 +51,10 @@ export class Form extends Block {
     console.log('form valid: ', form.reportValidity());
   }
 
-  static clickHandler(e): void {
+  static clickHandler(e: Event): void {
     e.preventDefault();
     e.stopPropagation();
-    const target: HTMLElement = e.target;
+    const target: HTMLElement = e.target as HTMLElement;
 
     const isButton: boolean = target.tagName === 'BUTTON';
     const isSubmitButton: boolean = isButton && target.getAttribute('type') === 'submit';
@@ -64,26 +64,28 @@ export class Form extends Block {
     }
   }
 
-  static blurHandler(e): void {
-    const input: HTMLInputElement = e.target;
+  static blurHandler(e: Event): void {
+    const input: HTMLInputElement = e.target as HTMLInputElement;
     Form.checkInputValidity(input);
   }
 
-  static focusHandler(e): void {
-    const input: HTMLInputElement = e.target;
+  static focusHandler(e: Event): void {
+    const input: HTMLInputElement = e.target as HTMLInputElement;
     Form.checkInputValidity(input);
   }
 
   static checkInputValidity(input: HTMLInputElement): void {
     const { patternMismatch, valueMissing, valid } = input.validity;
-    const errorMsg: HTMLElement = document.querySelector(`[data-input="input-name-${input.name}"]`);
-    errorMsg.style.display = valid ? 'none' : 'inline-block';
-    if (valueMissing) {
-      errorMsg.innerText = 'Поле обязательное';
-    }
+    const errorMsg: HTMLElement | null = document.querySelector(`[data-input="input-name-${input.name}"]`);
+    if (errorMsg) {
+      errorMsg.style.display = valid ? 'none' : 'inline-block';
+      if (valueMissing) {
+        errorMsg.innerText = 'Поле обязательное';
+      }
 
-    if (patternMismatch) {
-      errorMsg.innerText = `Некорректный формат, паттерн: ${input.pattern}`;
+      if (patternMismatch) {
+        errorMsg.innerText = `Некорректный формат, паттерн: ${input.pattern}`;
+      }
     }
   }
 }

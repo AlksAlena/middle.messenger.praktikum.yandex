@@ -4,9 +4,6 @@ import Button from '../../components/button';
 import Form from '../../components/form';
 import { patterns } from '../../utils/validators';
 
-interface ProfilePageProps {
-  form: Form;
-}
 
 export class ProfilePage extends Block {
   constructor() {

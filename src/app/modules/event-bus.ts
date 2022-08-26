@@ -6,13 +6,13 @@ export enum EVENTS {
 }
 
 export class EventBus {
-  listeners: { [key: string]: Array<() => void> };
+  listeners: Record<string, Function[]>;
 
   constructor() {
     this.listeners = {};
   }
 
-  on(event, callback): void {
+  on(event: string, callback: Function): void {
     if (!this.listeners[event]) {
       this.listeners[event] = [];
     }
@@ -20,7 +20,7 @@ export class EventBus {
     this.listeners[event].push(callback);
   }
 
-  off(event: string, callback: () => void): void {
+  off(event: string, callback: Function): void {
     if (!this.listeners[event]) {
       return;
     }

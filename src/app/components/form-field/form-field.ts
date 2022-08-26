@@ -7,6 +7,8 @@ interface FormFieldProps {
   type: string;
   labelClass: string;
   labelText: string;
+  required?: boolean;
+  pattern?: string;
 }
 
 export class FormField extends Block {

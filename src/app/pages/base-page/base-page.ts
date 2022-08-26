@@ -11,15 +11,15 @@ export class BasePage extends Block {
     const header = new Header();
     const footer = new Footer();
     const events = {
-      click: (e) => {
+      click: (e: Event) => {
         e.preventDefault();
         e.stopPropagation();
-        const target = e.target;
-        const isLink = target.hasAttribute('href');
-        const navLink = target.classList.contains('navigation');
+        const target: HTMLElement = e.target as HTMLElement;
+        const isLink: boolean = target.hasAttribute('href');
+        const isNavLink: boolean = target.classList.contains('navigation');
 
-        if (isLink && navLink) {
-          const url = target.getAttribute('href');
+        if (isLink && isNavLink) {
+          const url: string | null = target.getAttribute('href');
           this.goToPage(url);
         }
       }
@@ -28,7 +28,10 @@ export class BasePage extends Block {
     super({ ...props, header, footer, events });
   }
 
-  private goToPage(url: string): void {
+  private goToPage(url: string | null): void {
+    if (!url) {
+      return;
+    }
     this.setProps({ content: this._routes[url]() });
   }
 

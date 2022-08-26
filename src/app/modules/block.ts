@@ -11,7 +11,7 @@ export class Block {
   static EVENTS = EVENTS;
 
   private _element: HTMLElement = null;
-  private _meta: any = null;
+  private _meta: { props: any } = null;
   protected props: ProxyHandler<any> = null;
   protected children: ProxyHandler<any> = null;
   eventBus: () => EventBus;
@@ -179,7 +179,7 @@ export class Block {
 
     Object.entries(this.children).forEach(([key, child]) => {
       // добавить обработку массива компонентов
-      const stub = fragment.content.querySelector(`[data-id="id-${child.id}"]`);
+      const stub: Element | null = fragment.content.querySelector(`[data-id="id-${child.id}"]`);
       if (!stub) {
         return;
       }
