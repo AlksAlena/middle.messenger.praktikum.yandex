@@ -7,9 +7,9 @@
     "build": "npm run clean && npx parcel build index.html",
     "start": "npm run build && node server.js",
     "clean": "rimraf ./dist && rimraf ./.parcel-cache",
-    "lint": "npx eslint ./src/**/*.{js,ts,jsx}",
+    "lint": "eslint ./src/**/*.{js,ts,jsx}",
     "lint:fix": "npm run lint -- --fix",
-    "style": "npx stylelint **/*.scss",
+    "style": "stylelint **/*.scss",
     "style:fix": "npm run style -- --fix"
   },
   "repository": {
