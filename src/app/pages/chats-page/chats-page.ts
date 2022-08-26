@@ -16,13 +16,13 @@ interface ChatMessage {
   date: string;
 }
 
-interface ChatsPageProps {
+type ChatsPageProps = {
   chats: ChatInfo[];
   activeChatMessages: ChatMessage[];
   button: Button
-}
+};
 
-export class ChatsPage extends Block {
+export class ChatsPage extends Block<ChatsPageProps> {
   constructor() {
     const button = new Button({
       text: 'Отправить',
@@ -52,6 +52,7 @@ export class ChatsPage extends Block {
   }
 
   protected render(): DocumentFragment {
+    // @ts-ignore
     return this.compile(template, {...this.props});
   }
 }

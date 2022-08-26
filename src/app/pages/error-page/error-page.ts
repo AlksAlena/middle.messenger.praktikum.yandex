@@ -1,16 +1,19 @@
 import { Block } from '../../modules/block';
 import template from './error-page.hbs';
 
-interface ErrorPageProps {
+type ErrorPageProps = {
   link: { text: string, url: string };
   message: string;
-}
-export class ErrorPage extends Block {
+};
+
+
+export class ErrorPage extends Block<ErrorPageProps> {
   constructor(props: ErrorPageProps) {
     super(props);
   }
 
   protected render(): DocumentFragment {
+    // @ts-ignore
     return this.compile(template, {...this.props});
   }
 }

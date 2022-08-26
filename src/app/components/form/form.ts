@@ -2,7 +2,7 @@ import { Block } from '../../modules/block';
 import template from './form.hbs';
 import Button from '../button';
 
-interface FormProps {
+type FormProps = {
   title: string;
   fields: { [key: string]: string | RegExp | boolean }[];
   button?: Button;
@@ -11,9 +11,9 @@ interface FormProps {
     submit?: (e: Event) => void,
     click?: (e: Event) => void
   }
-}
+};
 
-export class Form extends Block {
+export class Form extends Block<FormProps> {
   static events = {
     submit: Form.submitHandler,
     click: Form.clickHandler
@@ -34,6 +34,7 @@ export class Form extends Block {
   }
 
   protected render(): DocumentFragment {
+    // @ts-ignore
     return this.compile(template, { ...this.props });
   }
 

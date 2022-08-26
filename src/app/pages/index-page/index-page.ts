@@ -4,8 +4,12 @@ import Button from '../../components/button';
 import Form from '../../components/form';
 import { patterns } from '../../utils/validators';
 
+type IndexPageProps = {
+  form: Form;
+};
 
-export class IndexPage extends Block {
+
+export class IndexPage extends Block<IndexPageProps> {
   constructor() {
     const button = new Button({
       text: 'Войти',
@@ -24,10 +28,13 @@ export class IndexPage extends Block {
       button
     });
 
-    super({ form });
+    const props: IndexPageProps = { form };
+
+    super(props);
   }
 
   protected render(): DocumentFragment {
+    // @ts-ignore
     return this.compile(template, {...this.props});
   }
 }

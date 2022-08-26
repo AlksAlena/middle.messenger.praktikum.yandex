@@ -4,10 +4,18 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import { routes } from '../../utils/routes';
 
-export class BasePage extends Block {
+type BasePageProps = {
+  header?: Header;
+  footer?: Footer;
+  content?: Block<any>;
+  events?: Record<string, Function>;
+};
+
+
+export class BasePage extends Block<BasePageProps> {
   private readonly _routes = { ...routes };
 
-  constructor(props: { content: Block }) {
+  constructor(props: { content: Block<any> }) {
     const header = new Header();
     const footer = new Footer();
     const events = {
@@ -36,6 +44,7 @@ export class BasePage extends Block {
   }
 
   protected render(): DocumentFragment {
+    // @ts-ignore
     return this.compile(template, {...this.props});
   }
 }

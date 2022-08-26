@@ -11,12 +11,13 @@ interface FormFieldProps {
   pattern?: string;
 }
 
-export class FormField extends Block {
-  constructor(props: FormFieldProps[]) {
+export class FormField extends Block<FormFieldProps> {
+  constructor(props: FormFieldProps) {
     super(props);
   }
 
   protected render(): DocumentFragment {
+    // @ts-ignore
     return this.compile(template, { ...this.props });
   }
 }

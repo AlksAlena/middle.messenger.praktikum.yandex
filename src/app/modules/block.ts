@@ -2,23 +2,19 @@ import { nanoid } from 'nanoid';
 import { EVENTS, EventBus } from './event-bus';
 import { makePropsProxy } from '../utils/proxy';
 
-interface PropsAndChildren {
-  props: any;
-  children: { [key: string]: Block };
-}
 
-export class Block {
+export abstract class Block<Props extends {}> {
   static EVENTS = EVENTS;
 
   private _element: HTMLElement = null;
   private _meta: { props: any } = null;
-  protected props: ProxyHandler<any> = null;
-  protected children: ProxyHandler<any> = null;
+  protected props: ProxyHandler<Record<string, any>> = null;
+  protected children: ProxyHandler<Record<string, Block<Props>>> = null;
   eventBus: () => EventBus;
 
   id: string = nanoid(6);
 
-  constructor(propsAndChildren: any = {}) {
+  constructor(propsAndChildren: Props) {
     const eventBus = new EventBus();
     this.eventBus = () => eventBus;
 
@@ -52,18 +48,18 @@ export class Block {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
   }
 
-  private _componentDidUpdate(oldProps: any, newProps: any): void {
+  private _componentDidUpdate(oldProps: Props, newProps: Props): void {
     const needRerender: boolean = this.componentDidUpdate(oldProps, newProps);
     if (needRerender) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
   }
 
-  protected componentDidUpdate(oldProps: any, newProps: any): boolean {
+  protected componentDidUpdate(oldProps: Props, newProps: Props): boolean {
     return JSON.stringify(oldProps) !== JSON.stringify(newProps);
   }
 
-  setProps = (nextProps: any) => {
+  setProps = (nextProps: Props) => {
     if (!nextProps) {
       return;
     }
@@ -104,9 +100,9 @@ export class Block {
     return this.element;
   }
 
-  private _getPropsAndChildren(propsAndChildren: any): PropsAndChildren {
-    const props: any = {};
-    const children: { [key: string]: Block } = {};
+  private _getPropsAndChildren(propsAndChildren: Props): { props: Record<string, any>, children: Record<string, Block<Props>> } {
+    const props: Record<string, any> = {};
+    const children: { [key: string]: Block<Props> } = {};
 
     Object.entries(propsAndChildren).forEach(([key, value]) => {
       if (value instanceof Block) {
@@ -121,7 +117,7 @@ export class Block {
     return { props, children };
   }
 
-  private _makePropsProxy(props: any): ProxyHandler<any> {
+  private _makePropsProxy<T extends {}>(props: T): ProxyHandler<T> {
     return makePropsProxy(props, this.eventBus());
   }
 
@@ -165,19 +161,21 @@ export class Block {
    * @param context
    * @protected
    */
-  protected compile(template: (context: any) => string, context: any): DocumentFragment {
+  protected compile(template: (context: Props) => string, context: Props): DocumentFragment {
     const fragment = this._createDocumentElement('template') as HTMLTemplateElement;
     Object.entries(this.children).forEach(([key, child]) => {
       if (Array.isArray(child)) {
+        // @ts-ignore
         context[key] = child.map(ch => context[key] = `<div data-id="id-${ch.id}"></div>`);
         return;
       }
+      // @ts-ignore
       context[key] = `<div data-id="id-${child.id}"></div>`;
     });
 
     fragment.innerHTML = template(context);
 
-    Object.entries(this.children).forEach(([key, child]) => {
+    Object.values(this.children).forEach(child => {
       // добавить обработку массива компонентов
       const stub: Element | null = fragment.content.querySelector(`[data-id="id-${child.id}"]`);
       if (!stub) {

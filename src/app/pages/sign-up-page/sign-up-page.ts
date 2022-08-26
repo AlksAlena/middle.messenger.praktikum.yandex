@@ -4,8 +4,12 @@ import Button from '../../components/button';
 import Form from '../../components/form';
 import { patterns } from '../../utils/validators';
 
+type SignUpPageProps = {
+  form: Form;
+};
 
-export class SignUpPage extends Block {
+
+export class SignUpPage extends Block<SignUpPageProps> {
   constructor() {
     const button = new Button({
       text: 'Зарегистрироваться',
@@ -29,10 +33,13 @@ export class SignUpPage extends Block {
       button
     });
 
-    super({ form });
+    const props: SignUpPageProps = { form };
+
+    super(props);
   }
 
   protected render(): DocumentFragment {
+    // @ts-ignore
     return this.compile(template, {...this.props});
   }
 }

@@ -3,22 +3,23 @@ import template from './button.hbs';
 
 type ButtonType = 'button' | 'submit' | 'reset';
 
-interface ButtonProps {
+type ButtonProps = {
   text: string;
   cssClass?: string;
   type?: ButtonType;
   events?: {
     click?: (e: Event) => void
   }
-}
+};
 
-export class Button extends Block {
+export class Button extends Block<ButtonProps> {
   constructor(props: ButtonProps) {
-    const { text = 'Click me', type = 'button', cssClass = 'button', events = [] } = props || {};
+    const { text = 'Click me', type = 'button', cssClass = 'button', events = {} } = props || {};
     super({ text, type, cssClass, events });
   }
 
   protected render(): DocumentFragment {
+    // @ts-ignore
     return this.compile(template, { ...this.props });
   }
 

@@ -1,12 +1,12 @@
 import { Block } from '../../modules/block';
 import template from './footer.hbs';
 
-interface FooterProps {
+type FooterProps = {
   links: { text: string, url: string }[];
   events?: { click?: (e: Event) => void };
-}
+};
 
-export class Footer extends Block {
+export class Footer extends Block<FooterProps> {
   constructor() {
     const props: FooterProps = {
       links: [
@@ -18,7 +18,7 @@ export class Footer extends Block {
         { text: '5**', url: '5**.html' },
       ],
       events: {
-        click: (e) => {
+        click: (e: Event) => {
           e.preventDefault();
           const target: HTMLElement = e.target as HTMLElement;
           const isLink: boolean = target.hasAttribute('href');
@@ -34,6 +34,7 @@ export class Footer extends Block {
   }
 
   protected render(): DocumentFragment {
+    // @ts-ignore
     return this.compile(template, { ...this.props });
   }
 }

@@ -1,6 +1,6 @@
 import { EventBus, EVENTS } from '../modules/event-bus';
 
-export function makePropsProxy(props: any, eventBus: EventBus): ProxyHandler<any> {
+export function makePropsProxy<Props extends {}>(props: Props, eventBus: EventBus): ProxyHandler<Props> {
 return new Proxy(props, {
   get(target: any, prop: string | symbol): any {
     const value = target[prop];
@@ -12,7 +12,7 @@ return new Proxy(props, {
     eventBus.emit(EVENTS.FLOW_CDU, oldValue, target);
     return true;
   },
-  deleteProperty(target: any, prop: string | symbol): boolean {
+  deleteProperty(): boolean {
     throw new Error('Нет доступа');
   },
 });

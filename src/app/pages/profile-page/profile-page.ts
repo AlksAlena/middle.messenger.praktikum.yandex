@@ -4,8 +4,12 @@ import Button from '../../components/button';
 import Form from '../../components/form';
 import { patterns } from '../../utils/validators';
 
+type ProfilePageProps = {
+  form: Form;
+};
 
-export class ProfilePage extends Block {
+
+export class ProfilePage extends Block<{}> {
   constructor() {
     const button = new Button({
       text: 'Сохранить',
@@ -33,7 +37,9 @@ export class ProfilePage extends Block {
       button
     });
 
-    super({ form });
+    const props: ProfilePageProps = { form };
+
+    super(props);
   }
 
   protected render(): DocumentFragment {
