@@ -9,16 +9,18 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   height: 100vh;
   box-sizing: border-box;
 }
 
-body {
+.app-container {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: $primary-text-color;
+  color: $neutral-dark;
 }
 
 h1 {
@@ -38,11 +40,17 @@ ul {
 
 .link {
   text-decoration: none;
-  color: $primary-bg-color;
+  color: $primary;
   display: inline-block;
   padding: 5px;
 
   &:hover {
-    color: $dark-primary-bg-color;
+    color: $primary-dark;
   }
+}
+
+.error-msg {
+  color: red;
+  font-size: 12px;
+  display: none;
 }

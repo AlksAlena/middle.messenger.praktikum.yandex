@@ -1,9 +1,9 @@
 @import './_variables';
 
 .footer {
-  background-color: $primary-bg-color;
+  background-color: $primary;
   height: 70px;
-  color: #fff;
+  color: $primary-text;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -16,12 +16,12 @@
   font-size: 0.9em;
   display: inline-block;
   text-decoration: none;
-  color: #fff;
+  color: $primary-text;
   padding: 5px 0;
   margin: 0 5px;
-  border-bottom: 1px dashed #fff;
+  border-bottom: 1px dashed $primary-text;
 
   &:hover {
-    border-bottom-color: $dark-primary-bg-color ;
+    border-bottom-color: $primary-dark;
   }
 }

@@ -2,7 +2,7 @@
 
 .form {
   width: 370px;
-  background-color: $light-grey-form-bg;
+  background-color: $neutral-light;
   margin: auto;
   padding: 30px;
   box-sizing: border-box;
@@ -34,14 +34,14 @@
 
 .button {
   margin: 15px 0 0;
-  background-color: $primary-bg-color;
-  color: #fff;
+  background-color: $primary;
+  color: $primary-text;
   border-radius: 5px;
   border: none;
   cursor: pointer;
   padding: 7px 12px;
 
   &:hover {
-    background-color: $dark-primary-bg-color;
+    background-color: $primary-dark;
   }
 }

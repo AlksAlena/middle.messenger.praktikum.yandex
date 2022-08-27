@@ -1,0 +1,32 @@
+<form class="form" action="">
+  <h1> {{ title }} </h1>
+
+  <ul class="form-fields">
+    {{#each fields}}
+      <li class="form-field">
+        <label class="{{ labelClass }}" for="{{ name }}">{{ labelText }}</label>
+        <div>
+          <input class="{{ inputClass }}"
+                 id="{{ name }}"
+                 name="{{ name }}"
+                 type="{{ type }}"
+                {{#if required}}
+                 required="{{ required }}"
+                {{/if}}
+                {{#if pattern}}
+                 pattern="{{ pattern }}"
+                {{/if}}>
+          <span class="error-msg" data-input="input-name-{{ name }}"></span>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+
+  {{#if link}}
+    <a class="{{ link.class }}" href="{{ link.url }}">{{ link.text }}</a>
+  {{/if}}
+
+  <div class="button-wrapper">
+    {{{ button }}}
+  </div>
+</form>

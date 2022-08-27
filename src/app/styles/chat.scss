@@ -11,7 +11,7 @@
 }
 
 .chat-title {
-  border: 1px solid $light-primary-bg-color;
+  border: 1px solid $primary-light;
   box-sizing: border-box;
   margin-bottom: 2px;
   display: flex;
@@ -27,19 +27,19 @@
 }
 
 .title-username a {
-  color: $primary-text-color;
+  color: $neutral-dark;
   text-decoration: none;
   display: block;
   padding: 15px;
 
   &:hover {
-    color: #fff;
-    background-color: $light-primary-bg-color;
+    color: $primary-text;
+    background-color: $primary-light;
   }
 }
 
 .title-status {
-  background-color: orange;
+  background-color: $orange;
   padding: 15px 0;
   width: 15px;
 }
