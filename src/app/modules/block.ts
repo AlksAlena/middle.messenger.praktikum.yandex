@@ -6,7 +6,7 @@ import { makePropsProxy } from '../utils/proxy';
 export abstract class Block<Props extends {}> {
   static EVENTS = EVENTS;
 
-  private _element: HTMLElement = null;
+  private _element: HTMLElement | null = null;
   private _meta: { props: any } = null;
   protected props: ProxyHandler<Record<string, any>> = null;
   protected children: ProxyHandler<Record<string, Block<Props>>> = null;
