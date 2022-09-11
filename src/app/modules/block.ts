@@ -2,19 +2,18 @@ import { nanoid } from 'nanoid';
 import { EVENTS, EventBus } from './event-bus';
 import { makePropsProxy } from '../utils/proxy';
 
-
 export abstract class Block<Props extends {}> {
   static EVENTS = EVENTS;
 
-  private _element: HTMLElement | null = null;
-  private _meta: { props: any } = null;
-  protected props: ProxyHandler<Record<string, any>> = null;
-  protected children: ProxyHandler<Record<string, Block<Props>>> = null;
+  private _element: HTMLElement;
+  private _meta: { props: any } | null = null;
+  protected props: ProxyHandler<Record<string, any>> | null = null;
+  protected children: ProxyHandler<Record<string, Block<Props>>> | null = null;
   eventBus: () => EventBus;
 
   id: string = nanoid(6);
 
-  constructor(propsAndChildren: Props) {
+  protected constructor(propsAndChildren: Props) {
     const eventBus = new EventBus();
     this.eventBus = () => eventBus;
 
@@ -140,7 +139,7 @@ export abstract class Block<Props extends {}> {
 
     Object.entries(events).forEach(([event, listener]) => {
       this._element!.removeEventListener(event, listener);
-    })
+    });
   }
 
   private _createDocumentElement(tag: string): HTMLElement {

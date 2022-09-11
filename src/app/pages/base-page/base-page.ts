@@ -2,7 +2,6 @@ import { Block } from '../../modules/block';
 import template from './base-page.hbs';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
-import { routes } from '../../utils/routes';
 
 type BasePageProps = {
   header?: Header;
@@ -13,9 +12,8 @@ type BasePageProps = {
 
 
 export class BasePage extends Block<BasePageProps> {
-  private readonly _routes = { ...routes };
 
-  constructor(props: { content: Block<any> }) {
+  constructor(props: { content?: Block<any> }) {
     const header = new Header();
     const footer = new Footer();
     const events = {
@@ -27,20 +25,13 @@ export class BasePage extends Block<BasePageProps> {
         const isNavLink: boolean = target.classList.contains('navigation');
 
         if (isLink && isNavLink) {
-          const url: string | null = target.getAttribute('href');
-          this.goToPage(url);
+          const url: string | null = target.getAttribute('href') || '';
+          window['router'].go(url);
         }
       }
     };
 
     super({ ...props, header, footer, events });
-  }
-
-  private goToPage(url: string | null): void {
-    if (!url) {
-      return;
-    }
-    this.setProps({ content: this._routes[url]() });
   }
 
   protected render(): DocumentFragment {
