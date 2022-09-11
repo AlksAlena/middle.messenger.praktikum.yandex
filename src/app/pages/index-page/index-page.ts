@@ -24,7 +24,7 @@ export class IndexPage extends Block<IndexPageProps> {
         { name: 'login', inputClass: 'input', type: 'text', labelClass: 'label', labelText: 'Логин', required: true, pattern: patterns.login },
         { name: 'password', inputClass: 'input', type: 'password', labelClass: 'label', labelText: 'Пароль', required: true, pattern: patterns.password },
       ],
-      link: { text: 'Ещё не зарегистрированы?', url: 'sign-up.html', class: 'navigation link' },
+      link: { text: 'Ещё не зарегистрированы?', url: '/sign-up', class: 'navigation link' },
       button
     });
 
