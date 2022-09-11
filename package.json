@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "учебный проект",
   "scripts": {
-    "dev": "npx parcel index.html --port 3000",
-    "build": "npm run clean && npx parcel build index.html",
+    "dev": "parcel index.html --port 3000",
+    "build": "npm run clean && parcel build index.html",
     "start": "npm run build && node server.js",
     "clean": "rimraf ./dist && rimraf ./.parcel-cache",
     "lint": "eslint ./src/**/*.{js,ts,jsx}",
