@@ -24,4 +24,25 @@ document.addEventListener('DOMContentLoaded', () => {
     .start();
 
   window['router'] = router;
+
+  /*
+  // Изменение истории
+  const state = { foo: 'bar' };
+  window.history.pushState(
+    state,         // объект состояния
+    'Page Title',  // заголовок состояния
+    '/pages/login'  // URL новой записи (относительно домена)
+  );
+  window.history.replaceState(state2, 'Other Title', '/another/page');
+  */
+
+  //   '404.html': () => new ErrorPage({
+  //   link: { text: 'На главную', url: 'index.html'},
+  //   message: '404. Страница не существует'
+  // }),
+  //   '5**.html': () => new ErrorPage({
+  //   link: { text: 'На главную', url: 'index.html'},
+  //   message: '5**. Ошибка сервера'
+  // }),
+
 });

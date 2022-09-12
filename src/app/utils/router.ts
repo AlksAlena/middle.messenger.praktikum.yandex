@@ -48,6 +48,7 @@ export class Router {
   }
 
   go(pathname: string): void {
+    // history.pushState({ page: 1 }, 'Title 1', '/menu?page=1');
     this.history.pushState({}, '', pathname);
     this._onRoute(pathname);
   }
