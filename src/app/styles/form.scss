@@ -16,16 +16,18 @@
 
 .form-field {
   display: flex;
-}
 
-.form-field .input {
-  padding: 5px;
-  flex: 1;
-}
+  & .label {
+    width: 95px;
+  }
 
-.form-field .label {
-  display: inline-block;
-  width: 30%;
+  & .input-wrapper {
+    flex: 1;
+
+    & .input {
+      padding: 5px;
+    }
+  }
 }
 
 .button-wrapper {
