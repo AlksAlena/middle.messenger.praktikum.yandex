@@ -1,4 +1,6 @@
 {
+  "include": ["src/**/*", "test/index.spec.ts"],
+  "exclude": ["node_modules"],
   "compileOnSave": false,
   "compilerOptions": {
     "noImplicitAny": true,
