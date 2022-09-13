@@ -10,7 +10,7 @@ export class Footer extends Block<FooterProps> {
   constructor() {
     const props: FooterProps = {
       links: [
-        { text: 'Вход', url: '/index' },
+        { text: 'Вход', url: '/' },
         { text: 'Регистрация', url: '/sign-up' },
         { text: 'Список чатов', url: '/chats' },
         { text: 'Настройки пользователя', url: '/profile' },

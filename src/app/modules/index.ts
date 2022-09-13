@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const router = new Router('#outlet');
   router
     .use('/', IndexPage)
-    .use('/index', IndexPage)
     .use('/chats', ChatsPage)
     .use('/profile', ProfilePage)
     .use('/sign-up', SignUpPage)
